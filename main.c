@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <conio.h>
 #include <windows.h>
+#include "header.h"
 
 void lead();
 void vote_bank();
