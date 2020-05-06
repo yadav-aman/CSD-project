@@ -3,7 +3,7 @@
 #include<stdbool.h>
 #include<string.h>
 
-int importData() // pass node of tree as call by reference
+int importData()
 {
     // Initialising a pointer to file
     FILE *FilePointer;
