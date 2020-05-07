@@ -26,9 +26,9 @@ typedef struct voterInfo  //Creates voter's information
 {
 	char ID[15]; //10 digit alphanumeric voter ID
 	char name[25]; //Voter's name
-	char sex[5]; //M= Male; F= Female; O= Others
-	char father_name[25]; //Father's name
-	char DOB[15]; //Format DD/MM/YYYY
+	//char sex[5]; //M= Male; F= Female; O= Others
+	//char father_name[25]; //Father's name
+	//char DOB[15]; //Format DD/MM/YYYY
 	struct voterInfo *next;
 } node;
 
@@ -192,20 +192,20 @@ void vote_feed()
 	gets (ID);
 	printf ("\n                      ENTER NAME (as per your EPIC):   ");
 	gets (name);
-	printf ("\n                      ENTER DOB (as per your EPIC in DD/MM/YYYY format):   ");
-	gets (DOB);
-	printf ("\n                      ENTER GENDER (as per your EPIC as M/F/O):   ");
-	gets (sex);
-	printf ("\n                      ENTER FATHER'S NAME (as per your EPIC):   ");
-	gets (father_name);
+	//printf ("\n                      ENTER DOB (as per your EPIC in DD/MM/YYYY format):   ");
+	//gets (DOB);
+	//printf ("\n                      ENTER GENDER (as per your EPIC as M/F/O):   ");
+	//gets (sex);
+	//printf ("\n                      ENTER FATHER'S NAME (as per your EPIC):   ");
+	//gets (father_name);
 	
 	temp= (node *)malloc(sizeof(node));
 	
 	strcpy (temp->ID, ID);
 	strcpy (temp->name, name);
-	strcpy (temp->DOB, DOB);
-	strcpy (temp->sex, sex);
-	strcpy (temp->father_name, father_name);
+	//strcpy (temp->DOB, DOB);
+	//strcpy (temp->sex, sex);
+	//strcpy (temp->father_name, father_name);
 	
 	temp->next = NULL;
 	head=temp;
