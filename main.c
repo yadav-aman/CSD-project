@@ -1,4 +1,4 @@
-//CSD201 Project: Voting System for Bihar Legislative Assembly Elections 2020 (Use of linked lists & string processing)
+//CSD201 Project: Voting System for Bihar Legislative Assembly Elections 2020 (Use of Linked Lists, Balanced Binary Tree & String Processing)
 //Team Members: Aman (1910110052), Aniket (1910110066), Naman (1910110250), Prashant (1910110284), Shagun (1910110363)
 
 //NOTE-> Eligibility to vote: Voter's name should be in the electoral roll.
