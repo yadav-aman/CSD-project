@@ -1,4 +1,4 @@
- #include"testheader.h"
+ #include"header.h"
  candidate *rootC =NULL;
  void main()
  {
