@@ -3,7 +3,7 @@
 #include <conio.h.>
 #include <windows.h>
 #include "header.h"
-
+int candIdSelected;
 long unsigned inputtedVoterID;
 char inputtedName[30];
 void main_panel();
@@ -203,12 +203,21 @@ void voting_screen()
                     int toCheckIfVoted = tempVoter->voted;
                     if (toCheckIfVoted)
                     {
-                        printf("\n\n\n\n\n\ You have already voted. Exiting to main panel.\n\n\n\n\n\n");
+                        printf("\n\n\n\n\n You have already voted. Exiting to main panel.\n\n\n\n\n\n");
                         main_panel();
                     }
                     else
                     {
-                        printf("\n\n\n\n\n\ You have not voted. To proceed to view candidate list, type YES.\n\n\n\n\n\n");
+                        printf("\n\n\n\n\n You have not voted.You can now view candidate list.\n\n\n\n\n\n");
+                        system("cls");
+                        printf("\n\n\n\n              Below is the list of all candidates: \n\n\n\n");
+                        candidate *listCandidate = rootC;
+                        list_all_candidates(listCandidate);
+                        printf("\n\n          Enter which candidate you want to vote for by entering his ID:\n");
+                        scanf("%d", &candIdSelected);
+                        printf("this is just a testing printf");
+                        Sleep(500);
+                        printf("Ya now this vote is accounted for");
                     }
                 }
                 else
