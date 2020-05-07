@@ -18,7 +18,7 @@ typedef struct voter //structure for soring the details of the voter
     int height;
 }voter;
 voter *root;
-
+long int TotalVoters = 0;
 
 // Function to get the height of the tree
 int getheight(voter *node)
@@ -141,6 +141,7 @@ voter* search(voter* root, long unsigned int key)
 
 int importData()
 {
+    root = NULL; // Initialising tree
     // Initialising a pointer to file
     FILE *FilePointer;
 
@@ -194,6 +195,7 @@ int importData()
             temp->height = 1;
 
             root = insertvoter(root, temp);
+	    TotalVoters++;
         }
         printf("Message: Data Successfully Loaded\n");
         fclose(FilePointer); // closing file
