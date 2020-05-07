@@ -131,7 +131,7 @@ void voting_screen()
     Sleep(500);
     printf("                         NOTE: Please make sure that you're registered in the electoral roll\n\n\n");
     Sleep(1000);
-    printf("                          Your ID will be blocked after 3 unsuccessful attempts for 3 hrs!!!\n\n");
+    printf("                          Your ID will be blocked after 3 unsuccessful attempts !!!\n\n");
     Sleep(1000);
     printf("                                       You're entering the data feeding panel\n");
     Sleep(500);
@@ -175,8 +175,10 @@ void voting_screen()
         printf("                        You have %d tries left.\n", timeLeft);
         printf("\n\n\n                      ENTER VOTER ID (as per your EPIC):   ");
         scanf("%lu", &inputtedVoterID);
+        getChar();
         printf("\n\n\n\n\n\n");
-        if (search(root, inputtedVoterID))
+        voter *tempVoter = root;
+        if (search(tempVoter, inputtedVoterID))
         {
             int nameTryLeft = 3;
 
@@ -186,9 +188,9 @@ void voting_screen()
                 printf("\n\n\n\n");
                 printf("                        You have %d tries left.\n", nameTryLeft);
                 printf("\n\n\n                      Enter your name as per VOTER ID:   ");
-                scanf("%s", inputtedName);
+                gets(inputtedName);
                 printf("\n\n\n\n\n\n");
-                int res = strcmp(root->name, inputtedName);
+                int res = strcmp(tempVoter->name, inputtedName);
                 if (res == 0)
                 {
                     printf("\n\n\n\n\n       You are a registered voter. Congrats.\n");
