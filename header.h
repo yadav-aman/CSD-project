@@ -8,6 +8,9 @@ typedef struct voter //structure for soring the details of the voter
     char name[30];
     char sex[2];
     char address[30];
+    int date;
+    int month;
+    int year;
     int voted;
     int NoOfAttempt;
     struct voter *left;
@@ -173,6 +176,15 @@ int importData()
 
             data = strtok(NULL,","); // updating data pointer to point to next value
             strcpy(temp->address,data);
+		
+	    data = strtok(NULL,","); // updating data pointer to point to next value
+            temp->date = atoi(data);
+		
+	    data = strtok(NULL,","); // updating data pointer to point to next value
+            temp->month = atoi(data);
+		
+	    data = strtok(NULL,","); // updating data pointer to point to next value
+            temp->year = atoi(data);
 
             data = strtok(NULL,","); // updating data pointer to point to next value
             temp->voted = atoi(data);
