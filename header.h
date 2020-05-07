@@ -27,7 +27,7 @@ long int TotalVoters = 0;
 typedef struct candidate // structure to store the list of candidates
 {
 	char name[30];
-	char partyName[50];
+	char partyName[45];
 	char partySymbol[20];
 	char sex[2];
 	long int numOfVotes;
@@ -36,7 +36,7 @@ typedef struct candidate // structure to store the list of candidates
 candidate *rootC;
 
 
-//---------------------------------------INPUT FUNCTION FOR CANDIDATE----------------------------------------------------------
+//--------------------------------------- INPUT FUNCTION FOR CANDIDATE ----------------------------------------------------------
 void insertCandidate(candidate **h, char name[30], char partyName[50], char partySymbol[20], char sex[2], long int numOfVotes)
 {
 	candidate *newC = (candidate *)malloc(sizeof(candidate));
@@ -238,7 +238,7 @@ int importVoters()
 
 int importCandidates()
 {
-	rootC = NULL; // Initialising tree
+	rootC = NULL; // Initialising Linked List
     // Initialising a pointer to file
     FILE *FilePointer;
 
@@ -282,7 +282,7 @@ int importCandidates()
 }
 
 
-//-----------------------------TO DISPLAY THE FINAL RESULTS OF THE ELECTION AND OTHER IMPORTANT STATS-------------------------------
+//-------------------------------- FINAL RESULTS OF THE ELECTION AND OTHER IMPORTANT STATS ---------------------------------
 void electionStatistics(candidate **list, long int totalVotesCasted)
 {
 	FILE *FilePointer;
