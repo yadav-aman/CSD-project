@@ -1,8 +1,8 @@
-﻿Name,Party Name,Party Logo,Sex,Number of Votes
-NOTA,.,.,.,0
-Nitish Kumar,Janata Dal (United),Arrow,M,0
-Pushpam Priya Choudhary,Plurals,Flying Horse,F,0
-Ram Vilas Paswan,Lok Janashakti Party,RGB Flag,M,0
-Tejaswi Yadav,Rashtriya Janata Dal,Lantern ,M,0
-Narendra Modi,Bhartiya Janata party,Lotus,M,0
-Arvind Kejriwal,Aam Aadmi Party,Broom,M,0
+﻿candID,Name,Party Name,Party Logo,Sex,Number of Votes
+100,NOTA,.,.,.,0
+387,Nitish Kumar,Janata Dal (United),Arrow,M,0
+477,Pushpam Priya Choudhary,Plurals,Flying Horse,F,0
+673,Ram Vilas Paswan,Lok Janashakti Party,RGB Flag,M,0
+743,Tejaswi Yadav,Rashtriya Janata Dal,Lantern ,M,0
+933,Narendra Modi,Bhartiya Janata party,Lotus,M,0
+383,Arvind Kejriwal,Aam Aadmi Party,Broom,M,0

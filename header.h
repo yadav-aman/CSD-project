@@ -24,6 +24,7 @@ long int TotalVoters = 0;
 //------------------------------ CANDIDATE STRUCTURE -------------------------------------------------------
 typedef struct candidate // structure to store the list of candidates
 {
+	int candID;
 	char name[30];
 	char partyName[50];
 	char partySymbol[20];
@@ -166,6 +167,9 @@ voter* search(voter* root, long unsigned int key)
     // Key is smaller than root's key 
     return search(root->left, key); 
 } 
+
+
+
 
 //------------------------------------------- CODE TO IMPORT DATA FROM DATABASE -------------------------------------------
 int importVoters()
