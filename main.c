@@ -175,7 +175,7 @@ void voting_screen()
         printf("                        You have %d tries left.\n", timeLeft);
         printf("\n\n\n                      ENTER VOTER ID (as per your EPIC):   ");
         scanf("%lu", &inputtedVoterID);
-        getChar();
+        getchar();
         printf("\n\n\n\n\n\n");
         voter *tempVoter = root;
         if (search(tempVoter, inputtedVoterID))
