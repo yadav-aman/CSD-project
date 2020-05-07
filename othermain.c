@@ -4,14 +4,13 @@
 #include <windows.h>
 #include "header.h"
 
-importVoters();
-importCandidates();
-
 int main()
 {
-    int num = 0;
+    importVoters();
+    importCandidates();
+    long unsigned num = 0;
     printf("enter a num, which should be the voter ID for checking\n");
-    scanf("%d", &num);
+    scanf("%lu", &num);
     if (search(root, num))
         printf("Yes this voter ID exists\n");
     else
