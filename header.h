@@ -20,6 +20,89 @@ typedef struct voter //structure for soring the details of the voter
 voter *root;
 long int TotalVoters = 0;
 
+typedef struct candidate // structure to store the list of candidates
+{
+	char name[30];
+	char partyName[50];
+	char partySymbol[20];
+	char sex[2];
+	int numOfVotes;
+	struct candidate *next;
+} candidate;
+
+//input function for candidate
+
+void insertCandidate(candidate **h, char name[30], char partyName[50], char partySymbol[20], char sex[2], int numOfVotes)
+{
+	candidate *newC = (candidate *)malloc(sizeof(candidate));
+	strcpy(newC->name, name);
+	strcpy(newC->partyName, partyName);
+	strcpy(newC->partySymbol, partySymbol);
+	strcpy(newC->sex, sex);
+	newC->numOfVotes = numOfVotes;
+	newC->next = *h;
+	*h = newC;
+}
+
+//to display the final results of the election and other important stats
+void electionStatistics(candidate **list, int totalVotesCasted)
+{
+	candidate *crt = *list;
+	if (*list == NULL)
+		printf("\nERROR\nCandidate List not found");
+	else
+	{
+		printf("\n\nELECTION STATISTICS:\n\n");
+		printf("Total Number of Voters on the Electoral roll: %ld\n", TotalVoters);
+		printf("Votes Casted: %d\n", totalVotesCasted);
+		float turnout = ((totalVotesCasted * 100) / TotalVoters);
+		printf("Voter Turnout: %.2f%%\n\n", turnout);
+
+		// to store the maximum number of votes won by a candidate/s
+		//i.e. if more than one candidate have got the same number of highest votes
+		int maxVotes, maxCounter = 0;
+		candidate *winner;
+		printf("\n");
+		while (crt != NULL)
+		{
+			printf("%s has got %d votes\n", crt->name, crt->numOfVotes);
+			if (crt->numOfVotes > maxVotes)
+			{
+				maxVotes = crt->numOfVotes;
+				maxCounter = 1;
+				winner = crt;
+			}
+			else if (crt->numOfVotes == maxVotes)
+				maxCounter++; //if more than one candidate has gotten the highest votes
+			else
+				;
+			crt = crt->next;
+		}
+		if (maxCounter == 1) // if there is only one winner
+		{
+			float votePer = (float)((winner->numOfVotes * 100 / totalVotesCasted));
+			printf("\nWinner of the Electons is: \n\nName: %s\nParty: %s\nLogo: %s\nVotes: %d\nVote Percentage: %.2f%%\n", winner->name, winner->partyName, winner->partySymbol, winner->numOfVotes, votePer);
+		}
+		else //in case there is a tie
+		{
+			crt = *list;
+			printf("\n\nThe Election has been tied between the following %d candidates:\n\n", maxCounter);
+			int counter = 1;
+			while (crt != NULL)
+			{
+
+				if (crt->numOfVotes == maxVotes)
+				{
+					float votePer = (float)((crt->numOfVotes * 100 / totalVotesCasted));
+					printf("Candidate %d:\nName: %s\nParty: %s\nLogo: %s\nVotes: %d\nVote Percentage: %.2f%%\n\n", counter, crt->name, crt->partyName, crt->partySymbol, crt->numOfVotes, votePer);
+					counter++;
+				}
+				crt = crt->next;
+			}
+		}
+	}
+}
+
 // Function to get the height of the tree
 int getheight(voter *node)
 {
