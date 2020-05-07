@@ -176,8 +176,7 @@ void voting_screen()
         printf("\n\n\n                      ENTER VOTER ID (as per your EPIC):   ");
         scanf("%lu", &inputtedVoterID);
         printf("\n\n\n\n\n\n");
-        voter *temp = root;
-        if (search(temp, inputtedVoterID))
+        if (search(root, inputtedVoterID))
         {
             int nameTryLeft = 3;
 
@@ -189,7 +188,7 @@ void voting_screen()
                 printf("\n\n\n                      Enter your name as per VOTER ID:   ");
                 scanf("%s", inputtedName);
                 printf("\n\n\n\n\n\n");
-                int res = strcmp(temp->name, inputtedName);
+                int res = strcmp(root->name, inputtedName);
                 if (res == 0)
                 {
                     printf("\n\n\n\n\n       You are a registered voter. Congrats.\n");
