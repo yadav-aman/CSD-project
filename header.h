@@ -31,8 +31,9 @@ typedef struct candidate // structure to store the list of candidates
 	long int numOfVotes;
 	struct candidate *next;
 } candidate;
+candidate *rootC;
 
-//input function for candidate
+//------------------------------------Input function for candidate------------------------------------------------------------
 void insertCandidate(candidate **h, char name[30], char partyName[50], char partySymbol[20], char sex[2], long int numOfVotes)
 {
 	candidate *newC = (candidate *)malloc(sizeof(candidate));
@@ -45,72 +46,6 @@ void insertCandidate(candidate **h, char name[30], char partyName[50], char part
 	*h = newC;
 }
 
-//to display the final results of the election and other important stats
-void electionStatistics(candidate **list, long int totalVotesCasted)
-{
-	candidate *crt = *list;
-	if (*list == NULL)
-	{
-		printf("\nERROR\nCandidate List not found");
-		return;
-	}
-	else if (TotalVoters == 0)
-	{
-		printf("\nERROR\nNo voter list found");
-		return;
-	}
-	else
-	{
-		printf("\n\nELECTION STATISTICS:\n\n");
-		printf("Total Number of Voters on the Electoral roll: %ld\n", TotalVoters);
-		printf("Votes Casted: %ld\n", totalVotesCasted);
-		float turnout = ((totalVotesCasted * 100) / TotalVoters);
-		printf("Voter Turnout: %.2f%%\n\n", turnout);
-
-		// to store the maximum number of votes won by a candidate/s
-		// i.e. if more than one candidate have got the same number of highest votes
-		int maxVotes, maxCounter = 0;
-		candidate *winner;
-		printf("\n");
-		while (crt != NULL)
-		{
-			printf("%s has got %ld votes\n", crt->name, crt->numOfVotes);
-			if (crt->numOfVotes > maxVotes)
-			{
-				maxVotes = crt->numOfVotes;
-				maxCounter = 1;
-				winner = crt;
-			}
-			else if (crt->numOfVotes == maxVotes)
-				maxCounter++; //if more than one candidate has gotten the highest votes
-			else
-				;
-			crt = crt->next;
-		}
-		if (maxCounter == 1) // if there is only one winner
-		{
-			float votePer = (float)((winner->numOfVotes * 100 / totalVotesCasted));
-			printf("\nWinner of the Electons is: \n\nName: %s\nParty: %s\nLogo: %s\nVotes: %ld\nVote Percentage: %.2f%%\n", winner->name, winner->partyName, winner->partySymbol, winner->numOfVotes, votePer);
-		}
-		else //in case there is a tie
-		{
-			crt = *list;
-			printf("\n\nThe Election has been tied between the following %d candidates:\n\n", maxCounter);
-			int counter = 1;
-			while (crt != NULL)
-			{
-
-				if (crt->numOfVotes == maxVotes)
-				{
-					float votePer = (float)((crt->numOfVotes * 100 / totalVotesCasted));
-					printf("Candidate %d:\nName: %s\nParty: %s\nLogo: %s\nVotes: %ld\nVote Percentage: %.2f%%\n\n", counter, crt->name, crt->partyName, crt->partySymbol, crt->numOfVotes, votePer);
-					counter++;
-				}
-				crt = crt->next;
-			}
-		}
-	}
-}
 
 //--------------------------------------------------------- AVL TREE CODE ------------------------------------------------
 // Function to get the height of the tree
@@ -233,7 +168,7 @@ voter* search(voter* root, long unsigned int key)
 } 
 
 //------------------------------------------- CODE TO IMPORT DATA FROM DATABASE -------------------------------------------
-int importData()
+int importVoters()
 {
     root = NULL; // Initialising tree
     // Initialising a pointer to file
@@ -250,7 +185,7 @@ int importData()
     }
     else
     {
-        printf("Message: File Opened\nLoading Data...\n");
+        printf("Message: Voters Database Opened\nLoading Data...\n");
         fgets(line,100,FilePointer); // storing first line in string 'line' from file to skip it
 
         while( fgets(line,100,FilePointer) ) // storing each line(one at a time) from the file in the string 'line'
@@ -291,8 +226,145 @@ int importData()
             root = insertvoter(root, temp);
 	    TotalVoters++;
         }
-        printf("Message: Data Successfully Loaded\n");
+        printf("Message: Voters Data Successfully Loaded\n\n");
         fclose(FilePointer); // closing file
     }
     return 0;
+}
+
+int importCandidates()
+{
+	rootC = NULL; // Initialising tree
+    // Initialising a pointer to file
+    FILE *FilePointer;
+
+    // Opening file in read-only mode and pointing the FilePointer to the start of the file
+    FilePointer = fopen("CandidateList.csv","r");
+    char line[100];
+
+    if( FilePointer == NULL )
+    {
+        printf("ERROR: Failed to open file.\nMake sure the required file is in current directory.\n");
+        return -1;
+    }
+    else
+    {
+        printf("Message: Candidates Database Opened\nLoading Data...\n");
+        fgets(line,100,FilePointer);
+
+        while( fgets(line,100,FilePointer))
+        {
+			char *data = strtok(line,",");
+			char *name = data;
+
+			data = strtok(NULL,",");
+			char *partyname = data;
+
+			data = strtok(NULL,",");
+			char *partysymbol = data;
+
+			data = strtok(NULL,",");
+			char *sex = data;
+
+			data = strtok(NULL,",");
+			int noofvotes = atoi(data);
+
+			insertCandidate(&rootC,name,partyname,partysymbol,sex,noofvotes);
+		}
+		printf("Message: Candidates Successfully Loaded\n\n");
+        fclose(FilePointer); // closing file
+	}
+	return 0;
+}
+
+//----------------------------To display the final results of the election and other important stats-----------------------------
+void electionStatistics(candidate **list, long int totalVotesCasted)
+{
+	FILE *FilePointer;
+	FilePointer = fopen("Result.txt","w");
+
+	candidate *crt = *list;
+	if (*list == NULL)
+	{
+		printf("\nERROR: Candidate List not found");
+		fprintf(FilePointer,"\nERROR: Candidate List not found"); // print to file
+		fclose(FilePointer);
+		return;
+	}
+	else if (TotalVoters == 0)
+	{
+		printf("\nERROR\nNo voter list found");
+		fprintf(FilePointer,"\nERROR: No voter list found");
+		fclose(FilePointer);
+		return;
+	}
+	else
+	{
+		printf("\n\nELECTION STATISTICS:\n\n");
+		fprintf(FilePointer,"\n\nELECTION STATISTICS:\n\n");
+
+		printf("Total Number of Voters on the Electoral roll: %ld\n", TotalVoters);
+		fprintf(FilePointer,"Total Number of Voters on the Electoral roll: %ld\n", TotalVoters);
+
+		printf("Votes Casted: %ld\n", totalVotesCasted);
+		fprintf(FilePointer,"Votes Casted: %ld\n", totalVotesCasted);
+
+		float turnout = ((totalVotesCasted * 100) / TotalVoters);
+		
+		printf("Voter Turnout: %.2f%%\n\n", turnout);
+		fprintf(FilePointer,"Voter Turnout: %.2f%%\n\n", turnout);
+
+
+		// to store the maximum number of votes won by a candidate/s
+		// i.e. if more than one candidate have got the same number of highest votes
+		int maxVotes, maxCounter = 0;
+		candidate *winner;
+		printf("\n");
+		while (crt != NULL)
+		{
+			printf("%s has got %ld votes\n", crt->name, crt->numOfVotes);
+			fprintf(FilePointer,"%s has got %ld votes\n", crt->name, crt->numOfVotes);
+
+			if (crt->numOfVotes > maxVotes)
+			{
+				maxVotes = crt->numOfVotes;
+				maxCounter = 1;
+				winner = crt;
+			}
+			else if (crt->numOfVotes == maxVotes)
+				maxCounter++; //if more than one candidate has gotten the highest votes
+			else
+				;
+			crt = crt->next;
+		}
+		if (maxCounter == 1) // if there is only one winner
+		{
+			float votePer = (float)((winner->numOfVotes * 100 / totalVotesCasted));
+			printf("\nWinner of the Electons is: \n\nName: %s\nParty: %s\nLogo: %s\nVotes: %ld\nVote Percentage: %.2f%%\n", winner->name, winner->partyName, winner->partySymbol, winner->numOfVotes, votePer);
+			fprintf(FilePointer,"\nWinner of the Electons is: \n\nName: %s\nParty: %s\nLogo: %s\nVotes: %ld\nVote Percentage: %.2f%%\n", winner->name, winner->partyName, winner->partySymbol, winner->numOfVotes, votePer);
+		
+		}
+		else //in case there is a tie
+		{
+			crt = *list;
+			printf("\n\nThe Election has been tied between the following %d candidates:\n\n", maxCounter);
+			fprintf(FilePointer,"\n\nThe Election has been tied between the following %d candidates:\n\n", maxCounter);
+
+			int counter = 1;
+			while (crt != NULL)
+			{
+
+				if (crt->numOfVotes == maxVotes)
+				{
+					float votePer = (float)((crt->numOfVotes * 100 / totalVotesCasted));
+					printf("Candidate %d:\nName: %s\nParty: %s\nLogo: %s\nVotes: %ld\nVote Percentage: %.2f%%\n\n", counter, crt->name, crt->partyName, crt->partySymbol, crt->numOfVotes, votePer);
+					fprintf(FilePointer,"Candidate %d:\nName: %s\nParty: %s\nLogo: %s\nVotes: %ld\nVote Percentage: %.2f%%\n\n", counter, crt->name, crt->partyName, crt->partySymbol, crt->numOfVotes, votePer);
+					counter++;
+				}
+				crt = crt->next;
+			}
+		}
+	}
+	printf("MESSAGE: Results Saved\n");
+	fclose(FilePointer);
 }
