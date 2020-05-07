@@ -172,7 +172,7 @@ voter* search(voter* root, long unsigned int key)
 
 
 //------------------------------------------- CODE TO IMPORT DATA FROM DATABASE -------------------------------------------
-int importVoters()
+void importVoters()
 {
     root = NULL; // Initialising tree
     // Initialising a pointer to file
@@ -185,7 +185,7 @@ int importVoters()
     if( FilePointer == NULL )
     {
         printf("ERROR: Failed to open file.\nMake sure the required file is in current directory.\n");
-        return -1;
+        return;
     }
     else
     {
@@ -233,10 +233,9 @@ int importVoters()
         printf("Message: Voters Data Successfully Loaded\n\n");
         fclose(FilePointer); // closing file
     }
-    return 0;
 }
 
-int importCandidates()
+void importCandidates()
 {
 	rootC = NULL; // Initialising Linked List
     // Initialising a pointer to file
@@ -249,7 +248,7 @@ int importCandidates()
     if( FilePointer == NULL )
     {
         printf("ERROR: Failed to open file.\nMake sure the required file is in current directory.\n");
-        return -1;
+        return;
     }
     else
     {
@@ -278,7 +277,6 @@ int importCandidates()
 		printf("Message: Candidates Successfully Loaded\n\n");
         fclose(FilePointer); // closing file
 	}
-	return 0;
 }
 
 //-------------------------------- FINAL RESULTS OF THE ELECTION AND OTHER IMPORTANT STATS ---------------------------------
