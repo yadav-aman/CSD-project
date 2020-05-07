@@ -87,8 +87,6 @@ voter* insertvoter(voter* node, voter *temp)
 		node->left = insertvoter(node->left, temp);
 	else if (temp->voterID > node->voterID)
 		node->right = insertvoter(node->right, temp);
-	else // Equal keys are not allowed in BST
-		return node;
 
 	/* 2. Update height of this ancestor node */
 	node->height = 1 + maximum(getheight(node->left),
@@ -128,7 +126,7 @@ voter* insertvoter(voter* node, voter *temp)
 	return node;
 }
 
-int importData() // pass node of tree as call by reference
+int importData()
 {
     // Initialising a pointer to file
     FILE *FilePointer;
