@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include<stdbool.h>
 #include<string.h>
 
 typedef struct voter //structure for soring the details of the voter
@@ -125,6 +124,20 @@ voter* insertvoter(voter* node, voter *temp)
 	/* return the (unchanged) node pointer */
 	return node;
 }
+
+voter* search(voter* root, long unsigned int key) 
+{ 
+    // Base Cases: root is null or key is present at root 
+    if (root == NULL || root->voterID == key) 
+       return root; 
+     
+    // Key is greater than root's key 
+    if (root->voterID < key) 
+       return search(root->right, key); 
+  
+    // Key is smaller than root's key 
+    return search(root->left, key); 
+} 
 
 int importData()
 {
