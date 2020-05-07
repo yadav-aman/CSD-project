@@ -49,7 +49,15 @@ void electionStatistics(candidate **list, int totalVotesCasted)
 {
 	candidate *crt = *list;
 	if (*list == NULL)
+	{
 		printf("\nERROR\nCandidate List not found");
+		return;
+	}
+	else if (TotalVoters == 0)
+	{
+		printf("\nERROR\nNo voter list found");
+		return;
+	}
 	else
 	{
 		printf("\n\nELECTION STATISTICS:\n\n");
