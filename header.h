@@ -2,8 +2,14 @@
 #include<stdlib.h>
 #include<string.h>
 
+<<<<<<< HEAD
 //------------------------------- VOTER DATA STRUCTURE -------------------------------------------------
 typedef struct voter //structure for storing the details of the voter
+=======
+
+//---------------------------------------- VOTER DATA STRUCTURE -----------------------------------------------------------
+typedef struct voter //structure for soring the details of the voter
+>>>>>>> a304210c74f2779d51aac3738eae65a592e9036b
 {
     long unsigned int voterID;
     char name[30];
@@ -21,11 +27,12 @@ typedef struct voter //structure for storing the details of the voter
 voter *root;
 long int TotalVoters = 0;
 
-//------------------------------ CANDIDATE STRUCTURE -------------------------------------------------------
+
+//----------------------------------------- CANDIDATE STRUCTURE ------------------------------------------------------------
 typedef struct candidate // structure to store the list of candidates
 {
 	char name[30];
-	char partyName[50];
+	char partyName[45];
 	char partySymbol[20];
 	char sex[2];
 	long int numOfVotes;
@@ -33,7 +40,8 @@ typedef struct candidate // structure to store the list of candidates
 } candidate;
 candidate *rootC;
 
-//------------------------------------Input function for candidate------------------------------------------------------------
+
+//--------------------------------------- INPUT FUNCTION FOR CANDIDATE ----------------------------------------------------------
 void insertCandidate(candidate **h, char name[30], char partyName[50], char partySymbol[20], char sex[2], long int numOfVotes)
 {
 	candidate *newC = (candidate *)malloc(sizeof(candidate));
@@ -47,7 +55,7 @@ void insertCandidate(candidate **h, char name[30], char partyName[50], char part
 }
 
 
-//--------------------------------------------------------- AVL TREE CODE ------------------------------------------------
+//----------------------------------------------- AVL TREE CODE --------------------------------------------------------------
 // Function to get the height of the tree
 int getheight(voter *node)
 {
@@ -167,7 +175,8 @@ voter* search(voter* root, long unsigned int key)
     return search(root->left, key); 
 } 
 
-//------------------------------------------- CODE TO IMPORT DATA FROM DATABASE -------------------------------------------
+
+//--------------------------------------------- CODE TO IMPORT DATA FROM DATABASE -------------------------------------------------
 int importVoters()
 {
     root = NULL; // Initialising tree
@@ -234,7 +243,7 @@ int importVoters()
 
 int importCandidates()
 {
-	rootC = NULL; // Initialising tree
+	rootC = NULL; // Initialising Linked List
     // Initialising a pointer to file
     FILE *FilePointer;
 
@@ -277,11 +286,12 @@ int importCandidates()
 	return 0;
 }
 
-//----------------------------To display the final results of the election and other important stats-----------------------------
+
+//-------------------------------- FINAL RESULTS OF THE ELECTION AND OTHER IMPORTANT STATS ---------------------------------
 void electionStatistics(candidate **list, long int totalVotesCasted)
 {
 	FILE *FilePointer;
-	FilePointer = fopen("Result.txt","w");
+	FilePointer = fopen("Result.txt","w"); // opening file in write mode
 
 	candidate *crt = *list;
 	if (*list == NULL)
@@ -365,6 +375,6 @@ void electionStatistics(candidate **list, long int totalVotesCasted)
 			}
 		}
 	}
-	printf("MESSAGE: Results Saved\n");
+	printf("MESSAGE: Results Saved in Results.txt file\n");
 	fclose(FilePointer);
 }

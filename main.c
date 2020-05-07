@@ -38,7 +38,7 @@ node *head;
 int count1=0;
 int count2=0;
 int count3=0;
-int count4=0;
+int count4=0;		//  inki zaroorat nahi h ab noofvotes structure me hi h
 int count5=0;
 
 int main()
