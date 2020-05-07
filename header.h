@@ -3,7 +3,7 @@
 #include<string.h>
 
 //------------------------------- VOTER DATA STRUCTURE -------------------------------------------------
-typedef struct voter //structure for soring the details of the voter
+typedef struct voter //structure for storing the details of the voter
 {
     long unsigned int voterID;
     char name[30];
