@@ -2,6 +2,8 @@
  candidate *rootC =NULL;
  void main()
  {
+  importData();
+  //abhi le liye random value daali hai votes ke liye 
  insertCandidate(&rootC,"NOTA",".",".",".",2);
  insertCandidate(&rootC,"Pushpam Priya Choudhary","Plurals","Flying Horse","F",10);
  insertCandidate(&rootC,"Ram Vilas Paswan","Lok Janashakti Party","RGB Flag","M",12);
