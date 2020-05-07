@@ -2,6 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 
+//------------------------------- VOTER DATA STRUCTURE -------------------------------------------------
 typedef struct voter //structure for soring the details of the voter
 {
     long unsigned int voterID;
@@ -20,6 +21,7 @@ typedef struct voter //structure for soring the details of the voter
 voter *root;
 long int TotalVoters = 0;
 
+//------------------------------ CANDIDATE STRUCTURE -------------------------------------------------------
 typedef struct candidate // structure to store the list of candidates
 {
 	char name[30];
@@ -31,7 +33,6 @@ typedef struct candidate // structure to store the list of candidates
 } candidate;
 
 //input function for candidate
-
 void insertCandidate(candidate **h, char name[30], char partyName[50], char partySymbol[20], char sex[2], long int numOfVotes)
 {
 	candidate *newC = (candidate *)malloc(sizeof(candidate));
@@ -67,7 +68,7 @@ void electionStatistics(candidate **list, long int totalVotesCasted)
 		printf("Voter Turnout: %.2f%%\n\n", turnout);
 
 		// to store the maximum number of votes won by a candidate/s
-		//i.e. if more than one candidate have got the same number of highest votes
+		// i.e. if more than one candidate have got the same number of highest votes
 		int maxVotes, maxCounter = 0;
 		candidate *winner;
 		printf("\n");
@@ -111,7 +112,7 @@ void electionStatistics(candidate **list, long int totalVotesCasted)
 	}
 }
 
-
+//--------------------------------------------------------- AVL TREE CODE ------------------------------------------------
 // Function to get the height of the tree
 int getheight(voter *node)
 {
@@ -126,7 +127,7 @@ int maximum(int a, int b)
 	return (a > b)? a : b;
 }
 
-voter* rightRotate(struct voter *y)//utility function to right rotate subtree rooted with y
+voter* rightRotate(struct voter *y) // Function to right rotate subtree rooted with y
 {
 	voter *x = y->left;
 	voter *T2 = x->right;
@@ -162,16 +163,16 @@ voter* leftRotate(voter*x)
 }
 
 // Get Balance factor of node N
-int getBalance(voter *N)
+int getBalance(voter *node)
 {
-	if (N == NULL)
+	if (node == NULL)
 		return 0;
-	return getheight(N->left) - getheight(N->right);
+	return getheight(node->left) - getheight(node->right);
 }
 
 voter* insertvoter(voter* node, voter *temp)
 {
-	/* 1. Perform the normal BST insertvoterion */
+	/* 1. Normal BST insertion */
 	if (node == NULL)
 		return temp;
 	else if (temp->voterID < node->voterID)
@@ -231,6 +232,7 @@ voter* search(voter* root, long unsigned int key)
     return search(root->left, key); 
 } 
 
+//------------------------------------------- CODE TO IMPORT DATA FROM DATABASE -------------------------------------------
 int importData()
 {
     root = NULL; // Initialising tree
@@ -273,7 +275,7 @@ int importData()
 	    	data = strtok(NULL,","); // updating data pointer to point to next value
             temp->month = atoi(data);
 		
-			data = strtok(NULL,","); // updating data pointer to point to next value
+	    	data = strtok(NULL,","); // updating data pointer to point to next value
             temp->year = atoi(data);
 
             data = strtok(NULL,","); // updating data pointer to point to next value
@@ -282,7 +284,7 @@ int importData()
             data = strtok(NULL,","); // updating data pointer to point to next value
             temp->NoOfAttempt = atoi(data);
 
-			temp->left = NULL;
+	    	temp->left = NULL;
             temp->right = NULL;
             temp->height = 1;
 
