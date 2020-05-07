@@ -4,8 +4,8 @@
 #include <windows.h>
 #include "header.h"
 
-long unsigned inputtedVoterID = 0;
-char inputtedName[30] = "";
+long unsigned inputtedVoterID;
+char inputtedName[30];
 void main_panel();
 void ex();
 void admin();
@@ -19,6 +19,7 @@ int main()
 {
     importVoters();
     importCandidates();
+    Sleep(500);
     system("cls");
 
     printf("\n\n");
@@ -177,8 +178,8 @@ void voting_screen()
         scanf("%lu", &inputtedVoterID);
         getchar();
         printf("\n\n\n\n\n\n");
-        voter *tempVoter = root;
-        if (search(tempVoter, inputtedVoterID))
+        voter *tempVoter = search(root, inputtedVoterID);
+        if (tempVoter)
         {
             int nameTryLeft = 3;
 
@@ -190,7 +191,7 @@ void voting_screen()
                 printf("\n\n\n                      Enter your name as per VOTER ID:   ");
                 gets(inputtedName);
                 printf("\n\n\n\n\n\n");
-                int res = strcmp(tempVoter->name, inputtedName);
+                int res = strcmpi(tempVoter->name, inputtedName);
                 if (res == 0)
                 {
                     printf("\n\n\n\n\n       You are a registered voter. Congrats.\n");
