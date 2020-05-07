@@ -250,7 +250,7 @@ int importCandidates()
     else
     {
         printf("Message: Candidates Database Opened\nLoading Data...\n");
-        fgets(line,100,FilePointer);
+        fgets(line,100,FilePointer); // skip first line
 
         while( fgets(line,100,FilePointer))
         {
