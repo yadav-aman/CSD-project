@@ -195,7 +195,21 @@ void voting_screen()
                 if (res == 0)
                 {
                     printf("\n\n\n\n\n       You are a registered voter. Congrats.\n");
-                    printf("\n\n                     Here are your details.\n");
+                    printf("\n\n                     Here are your details.\n\n\n\n\n");
+                    printf("\n\n\n\n      Your Voter ID: %lu\n", tempVoter->voterID);
+                    printf("              Your Name: %s\n", tempVoter->name);
+                    printf("              Your Gender: %s\n", tempVoter->sex);
+                    printf("              Your date of birth: %d-%d-%d\n", tempVoter->date, tempVoter->month, tempVoter->year);
+                    int toCheckIfVoted = tempVoter->voted;
+                    if (toCheckIfVoted)
+                    {
+                        printf("\n\n\n\n\n\ You have already voted. Exiting to main panel.\n\n\n\n\n\n");
+                        main_panel();
+                    }
+                    else
+                    {
+                        printf("\n\n\n\n\n\ You have not voted. To proceed to view candidate list, type YES.\n\n\n\n\n\n");
+                    }
                 }
                 else
                 {
