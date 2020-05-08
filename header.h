@@ -17,10 +17,11 @@ typedef struct voter //structure for storing the details of the voter
 	struct voter *left;
 	struct voter *right;
 	int height;
+
 } voter;
 voter *root;
 long int TotalVoters = 0;
-
+int candidateCounter = 0;
 //-------------------------------- CANDIDATE STRUCTURE -------------------------------------------------------
 typedef struct candidate // structure to store the list of candidates
 {
@@ -46,6 +47,7 @@ void insertCandidate(candidate **h, int candidID, char name[30], char partyName[
 	newC->numOfVotes = numOfVotes;
 	newC->next = *h;
 	*h = newC;
+	candidateCounter++;
 }
 
 //--------------------------------FUNCTION FOR PRINTING CANDIDATES------------------------------------------------------------------
@@ -61,6 +63,27 @@ void list_all_candidates(candidate *cand)
 		{
 			printf("\n\nCandidateID: %d || Name: %s || Party Name: %s || Party Symbol: %s || Gender: %s\n", cand->candID, cand->name, cand->partyName, cand->partySymbol, cand->sex);
 			cand = cand->next;
+		}
+
+		printf("\n\n");
+	}
+}
+
+//---------------------------------FUNCTION FOR UPDATING CANDIDATE VOTES-------------------------------------------------------
+void candidateVoteUpdate(candidate **c, int id)
+{
+	candidate *temp = *c;
+	if (temp == NULL)
+	{
+		printf("\n\nERROR\n\nNo candidates.\n\n\n\n\n");
+	}
+	else
+	{
+		while (temp != NULL)
+		{
+			if (temp->candID == id)
+				temp->numOfVotes++;
+			temp = temp->next;
 		}
 
 		printf("\n\n");
@@ -196,7 +219,7 @@ void importVoters()
 
 	// Opening file in read-only mode and pointing the FilePointer to the start of the file
 	FilePointer = fopen("VoterList.csv", "r");
-	char line[100];
+	char line[150];
 
 	if (FilePointer == NULL)
 	{
@@ -206,9 +229,9 @@ void importVoters()
 	else
 	{
 		printf("\t\t\t\t\tMessage: Voters Database Opened\n\t\t\t\t\tLoading Data...\n");
-		fgets(line, 100, FilePointer); // storing first line in string 'line' from file to skip it
+		fgets(line, 150, FilePointer); // storing first line in string 'line' from file to skip it
 
-		while (fgets(line, 100, FilePointer)) // storing each line(one at a time) from the file in the string 'line'
+		while (fgets(line, 150, FilePointer)) // storing each line(one at a time) from the file in the string 'line'
 		{
 			voter *temp = (voter *)malloc(sizeof(voter));
 
@@ -259,7 +282,7 @@ void importCandidates()
 
 	// Opening file in read-only mode and pointing the FilePointer to the start of the file
 	FilePointer = fopen("CandidateList.csv", "r");
-	char line[100];
+	char line[150];
 
 	if (FilePointer == NULL)
 	{
@@ -269,14 +292,14 @@ void importCandidates()
 	else
 	{
 		printf("\t\t\t\t\tMessage: Candidates Database Opened\n\t\t\t\t\tLoading Data...\n");
-		fgets(line, 100, FilePointer); // skip first line
+		fgets(line, 150, FilePointer); // skip first line
 
-		while (fgets(line, 100, FilePointer))
+		while (fgets(line, 150, FilePointer))
 		{
 			char *data = strtok(line, ",");
 			int candid = atoi(data);
 
-			data = strtok(NULL,",");
+			data = strtok(NULL, ",");
 			char *name = data;
 
 			data = strtok(NULL, ",");
@@ -337,7 +360,7 @@ void electionStatistics(candidate **list, long int totalVotesCasted)
 
 		// to store the maximum number of votes won by a candidate/s
 		// i.e. if more than one candidate have got the same number of highest votes
-		int maxVotes, maxCounter = 0;
+		int maxVotes=0, maxCounter = 0;
 		candidate *winner;
 		printf("\n");
 		while (crt != NULL)

@@ -2,9 +2,15 @@
 #include <string.h>
 #include <conio.h.>
 #include <windows.h>
+#include <stdbool.h>
 #include "header.h"
+
+#define ADMINID 123456
+
+bool isVotingOpen = true;
 int candIdSelected;
 long unsigned inputtedVoterID;
+long int numOfVotesCasted = 0;
 char inputtedName[30];
 void main_panel();
 void ex();
@@ -14,8 +20,9 @@ void wrong_data();
 void duplicate();
 void lead();
 void vote_bank();
+void adminPanel();
 
-int main()
+int main() //completed
 {
     system("cls");
     printf("\n\n\n\n\n\n\n\n");
@@ -24,6 +31,7 @@ int main()
     printf("\t\t\t\t\tPress any key to continue: ");
     getch();
     system("cls");
+<<<<<<< HEAD
 
     printf("\n\n");
     printf("                                       Satyamev Jayate- Bharat Nirvachan Aayog\n\n");
@@ -59,12 +67,14 @@ int main()
     }
     Sleep(1000); //Delay of 1 sec= Sleep(1000).
 
+=======
+>>>>>>> b19ff62d21d59e3ee3ebceaf2cddedaf69f4d668
     main_panel();
 
     return 0;
 }
 
-void ex()
+void ex() //completed
 {
     system("cls");
 
@@ -75,85 +85,211 @@ void ex()
     {
         printf("\t\t\t\t\t\t\t%d seconds", i);
         printf("\t\t\t\t\t\t\t\r");
+        Sleep(500);
+    }
+    Sleep(500);
+    main_panel();
+}
+
+void main_panel() //completed
+{
+    if (isVotingOpen)
+    {
+        system("cls");
+        printf("\n\n");
+        printf("                                       Satyamev Jayate- Bharat Nirvachan Aayog\n\n");
+        Sleep(200);
+        printf("-----------------------------------------------------------------------------------------------------------------------\n\n");
+        Sleep(200);
+        printf("                      **************** WELCOME TO ELECTION COMMISSION OF INDIA ***************                 \n");
+        Sleep(200);
+        printf("                                               Bihar Division, Patna                                           \n\n\n");
+        Sleep(200);
+        printf("                  BIHAR VIDHAN SABHA NIRVACHAN 2020           BIHAR LEGISLATIVE ASSEMBLY ELECTIONS 2020         \n\n");
+        Sleep(200);
+        printf("                                  ECI presenting the first online voting system of India.                        \n");
+        printf("\n                                             Vote count %d / %d\n\n\n\n",numOfVotesCasted,TotalVoters);
+        Sleep(200);
+        printf("                                       � Copyright Election Commission of India                                    \n\n");
+        Sleep(200);
+        printf("________________________________________________________________________________________________________________________\n\n\n");
+        Sleep(200);
+        printf("                                          Press any key to continue !!!                                \n\n\n");
+        printf("\n\n                                                      ");
         Sleep(1000);
+
+        getch();
+
+        Sleep(200);
+        int i;
+        for (i = 0; i <= 100; i+=5)
+        {
+            printf("\r");
+            printf("\t\t\t\t\t\tLoading : %d %%", i);
+            Sleep(1);
+        }
+        Sleep(1000); //Delay of 1 sec= Sleep(1000).
+
+        while (1)
+        {
+            system("cls");
+            printf("\n\n\n\n\n\n\n\n");
+            printf("                    \t\t\t       *** MAIN PANEL ***\n\n");
+            Sleep(200);
+            printf("                    \t\t\t(1) VOTE YOUR CANDIDATE ........\n\n");
+            Sleep(200);
+            printf("                    \t\t\t(2) ENTER ADMIN PANEL ........\n\n");
+            Sleep(200);
+            printf("                    \t\t\t(3) EXIT THE OVS........\n\n\n"); //OVS: Online Voting System
+
+            int choice;
+            printf("                                                      ");
+            scanf("%d", &choice);
+
+            switch (choice)
+            {
+
+            case 1:
+                voting_screen();
+                break;
+
+            case 2:
+                adminPanel();
+                break;
+
+            case 3:
+                ex();
+                break;
+
+            default:
+                printf("/t/t/t/t/n/n/n/nInvalid Choice\nEnter Again");
+                Sleep(1000);
+                break;
+            }
+        }
     }
-    Sleep(500);
+    else // finally exiting the system after the voting is complete
+    {
+        system("cls");
+        printf("Voting has been closed\nEnter Admin id to close the system\n");
+        int id;
+        while (1)
+        {
+            printf("\nID: ");
+            scanf("%d", &id);
+            if (id == ADMINID)
+            {
+                system("cls");
+                printf("\n\n                                          ID Verified              \n ");
+                printf("\n                                   Thank You for using our System    \n");
+                printf("\n\n                                     Closing System in...\n");
+                Sleep(1000);
+                int i = 4;
+                while (i--)
+                {
+                    printf("\t\t\t\t\t\t\t%d seconds", i);
+                    printf("\t\t\t\t\t\t\t\r");
+                    Sleep(1000);
+                }
+                Sleep(500);
+                exit(0);
+            }
+            else
+                printf("Invalid ID\nEnter again");
+        }
+    }
 }
-void main_panel()
+
+void adminPanel() //completed
+{
+    int id, ch;
+    while (1)
+    {
+        system("cls");
+        printf("\n\nEnter Admin Id: ");
+        scanf("%d", &id);
+        if (id == ADMINID)
+        {
+            printf("\n\t\t\t\t\tID Matched\n\t\t\t\t\tYou have entered the Admin Panel\n");
+            while (1)
+            {
+                printf("\n\n\t\t\t\t\tEnter: \n\t\t\t\t\t1.To close voting\n\t\t\t\t\t2.To view Results\n\t\t\t\t\t3.Go back to the main panel\n\t\t\t\t\t");
+                scanf("%d", &ch);
+                switch (ch)
+                {
+                case 1:
+                    if (isVotingOpen)
+                    {
+                        printf("\n\t\t\t\t\tVoting is now closed\n");
+                        isVotingOpen = false;
+                    }
+                    else
+                        printf("\n\t\t\t\t\tVoting has already been closed\n");
+                    break;
+
+                case 2:
+                    if (isVotingOpen)
+                    {
+                        printf("\n\t\t\t\t\tVoting is still open\n\t\t\t\t\tClose Voting to watch the Results\n");
+                        break;
+                    }
+                    else
+                        system("cls");
+                        electionStatistics(&rootC, numOfVotesCasted);
+                    break;
+
+                case 3:
+                    ex();
+                    break;
+
+                default:
+                    printf("\n\t\t\t\t\tInvalid Choice\n\t\t\t\t\tTry Again");
+                    break;
+                }
+            }
+        }
+        else
+            printf("Invalid ID\nEnter again");
+    }
+}
+
+void voting_screen() //completed
 {
     system("cls");
-
-    printf("\n\n\n\n\n\n\n\n");
-    printf("                    \t\t\t       *** MAIN PANEL ***\n\n");
+    printf("\n\n");
     Sleep(200);
-    printf("                    \t\t\t(1) VOTE YOUR CANDIDATE ........\n\n");
-    Sleep(200);
-    printf("                    \t\t\t(2) ENTER ADMIN PANEL ........\n\n");
-    Sleep(200);
-    printf("                    \t\t\t(3) CANDIDATE IN LEAD ........\n\n");
-    Sleep(200);
-    printf("                    \t\t\t(4) EXIT THE OVS........\n\n\n"); //OVS: Online Voting System
-
-    int choice;
-    printf("                                                      ");
-    scanf("%d", &choice);
-
-    if (choice == 1)
-    {
-        voting_screen();
-    }
-
-    if (choice == 2)
-    {
-    }
-
-    if (choice == 3)
-    {
-    }
-
-    if (choice == 4)
-    {
-        ex(); //Exit
-    }
-}
-
-void voting_screen()
-{
-    system("cls");
-    printf("\n\n\n\n\n");
-    Sleep(500);
     printf("                         NOTE: Please make sure that you're registered in the electoral roll\n\n\n");
-    Sleep(1000);
+    Sleep(500);
     printf("                          Your ID will be blocked after 3 unsuccessful attempts !!!\n\n");
-    Sleep(1000);
-    printf("                                       You're entering the data feeding panel\n");
-    Sleep(500);
-    printf("                                                       . ");
-    Sleep(500);
+    Sleep(200);
+    printf("                                    You're entering the data in the feeding panel\n");
+    Sleep(200);
+    printf("                                                     . ");
+    Sleep(200);
     printf(" . ");
-    Sleep(500);
+    Sleep(200);
     printf(" . \n");
 
-    Sleep(500);
+    Sleep(200);
     printf("                                                 Did you know?\n\n");
+    Sleep(200);
+    printf("                              BIHAR: THE FIRST STATE TO WITNESS BOOTH CAPTURING\n");
     Sleep(500);
-    printf("                               BIHAR: THE FIRST STATE TO WITNESS BOOTH CAPTURING\n");
-    Sleep(1000);
-    printf("       The first instance of booth capturing in India was recorded in 1957 in the General Elections of that\n");
+    printf("               The first instance of booth capturing in India was recorded in 1957 in the General Elections of that\n");
     printf("                                 year in Rachiyahi of Begusarai constituency.\n");
-    Sleep(1500);
-    printf("                                                       . ");
     Sleep(500);
+    printf("                                              . ");
+    Sleep(200);
     printf(" . ");
-    Sleep(500);
+    Sleep(200);
     printf(" . ");
-    Sleep(500);
+    Sleep(200);
     printf(" . ");
-    Sleep(500);
+    Sleep(200);
     printf(" . ");
-    Sleep(500);
+    Sleep(200);
     printf(" . ");
-    Sleep(500);
+    Sleep(200);
     printf(" . \n");
     printf("                                            Thanks for your patience.\n\n\n\n\n");
     Sleep(500);
@@ -173,46 +309,69 @@ void voting_screen()
         {
             int nameTryLeft = 3;
             system("cls");
-            printf("\n\n\n       Voter ID exists. Please enter correct name for further verification.\n\n\n");
+            printf("\n\n         Voter ID exists. Please enter correct name for further verification.\n\n\n");
             while (1)
             {
-                printf("\n\n\n\n");
-                printf("                        You have %d tries left.\n", nameTryLeft);
-                printf("\n\n\n                      Enter your name as per VOTER ID:   ");
+                printf("\n\n");
+                printf("                        You have %d tries left.", nameTryLeft);
+                printf("\n\n                       Enter your name as per VOTER ID:   ");
                 gets(inputtedName);
-                printf("\n\n\n\n\n\n");
+                printf("\n\n\n");
                 int res = strcmpi(tempVoter->name, inputtedName);
                 if (res == 0)
                 {
                     system("cls");
-                    printf("\n\n\n\n\n       You are a registered voter. Congrats.\n");
-                    printf("\n\n                     Here are your details.\n\n\n\n\n");
-                    printf("\n\n\n\n      Your Voter ID: %lu\n", tempVoter->voterID);
+                    printf("\n\n             You are a registered voter. Congrats.\n");
+                    printf("\n\n                     Here are your details.\n");
+                    printf("\n              Your Voter ID: %lu\n", tempVoter->voterID);
                     printf("              Your Name: %s\n", tempVoter->name);
                     printf("              Your Gender: %s\n", tempVoter->sex);
                     printf("              Your date of birth: %d-%d-%d\n", tempVoter->date, tempVoter->month, tempVoter->year);
-                    printf("\n\n\t\t\tEnter any key to continue:  ");
+                    printf("\n\n\t\t\t Press any key to continue!!");
                     getch();
                     int toCheckIfVoted = tempVoter->voted;
                     if (toCheckIfVoted)
                     {
+<<<<<<< HEAD
                         printf("\n\n\n\n\n You have already voted. Exiting to main panel.\n\n\n\n\n\n");
                         Sleep(1000);
                         main_panel();
+=======
+                        printf("\n\n       You have already voted. Exiting to main panel.");
+                        Sleep(2000);
+                        ex();
+>>>>>>> b19ff62d21d59e3ee3ebceaf2cddedaf69f4d668
                     }
                     else
                     {
                         system("cls");
+<<<<<<< HEAD
                         printf("\n\n\t\t\t You have not voted.You can now view candidate list.\n\n");
                         printf("\n\n              Below is the list of all candidates: \n\n");
+=======
+                        printf("\n\n\t\t\t You have not voted.You can now view candidate list.\n");
+                        printf("\n               Below is the list of all candidates: \n\n");
+>>>>>>> b19ff62d21d59e3ee3ebceaf2cddedaf69f4d668
                         candidate *listCandidate = rootC;
                         list_all_candidates(listCandidate);
-                        printf("\n\n          Enter which candidate you want to vote for by entering his ID:\n");
-                        scanf("%d", &candIdSelected);
-                        getchar();
-                        printf("this is just a testing printf");
-                        Sleep(500);
-                        printf("Ya now this vote is accounted for");
+                        while (1)
+                        {
+                            printf("\n\n          Enter which candidate you want to vote for by entering his ID:  ");
+                            scanf("%d", &candIdSelected);
+                            if (candIdSelected > 0 && candIdSelected <= candidateCounter)
+                            {
+                                candidateVoteUpdate(&listCandidate, candIdSelected);
+                                numOfVotesCasted++;
+                                tempVoter->voted++;
+                                Sleep(1000);
+                                system("cls");
+                                printf("\n\n\t\t\t\t\tYour Vote had been casted\n\t\t\t\t\tThank You for Voting\n\n\n\t\t\t\t\tExiting to Home Screen");
+                                Sleep(2000);
+                                ex();
+                            }
+                            else
+                                printf("\n\n\t\t\t\t\tInvalid Choice\n\t\t\t\t\tEnter Again\n");
+                        }
                     }
                 }
                 else
@@ -220,7 +379,7 @@ void voting_screen()
                     if (nameTryLeft < 1)
                     {
                         printf("\n\n\n\n           You ran out of attempts. Switching to main panel.\n\n\n");
-                        main_panel();
+                        ex();
                     }
                     printf("\n\n\n            Voter Name entered was wrong. Enter correct data.\n");
                     nameTryLeft--;
