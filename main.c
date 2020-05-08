@@ -121,6 +121,7 @@ void main_panel()
 
 void voting_screen()
 {
+    system("cls");
     printf("\n\n\n\n\n");
     Sleep(500);
     printf("                         NOTE: Please make sure that you're registered in the electoral roll\n\n\n");
@@ -129,19 +130,12 @@ void voting_screen()
     Sleep(1000);
     printf("                                       You're entering the data feeding panel\n");
     Sleep(500);
-    printf("                                                       .\n");
+    printf("                                                       . ");
     Sleep(500);
-    printf("                                                       .\n");
+    printf(" . ");
     Sleep(500);
-    printf("                                                       .\n");
-    Sleep(500);
-    printf("                             This process may take several seconds. Kindly, be patient\n");
-    Sleep(500);
-    printf("                                                       .\n");
-    Sleep(500);
-    printf("                                                       .\n");
-    Sleep(500);
-    printf("                                                       .\n");
+    printf(" . \n");
+
     Sleep(500);
     printf("                                                 Did you know?\n\n");
     Sleep(500);
@@ -150,21 +144,27 @@ void voting_screen()
     printf("       The first instance of booth capturing in India was recorded in 1957 in the General Elections of that\n");
     printf("                                 year in Rachiyahi of Begusarai constituency.\n");
     Sleep(1500);
-    printf("                                                       .\n");
+    printf("                                                       . ");
     Sleep(500);
-    printf("                                                       .\n");
+    printf(" . ");
     Sleep(500);
-    printf("                                                       .\n");
+    printf(" . ");
     Sleep(500);
+    printf(" . ");
+    Sleep(500);
+    printf(" . ");
+    Sleep(500);
+    printf(" . ");
+    Sleep(500);
+    printf(" . \n");
     printf("                                            Thanks for your patience.\n\n\n\n\n");
     Sleep(500);
 
-    system("cls");
 
     int timeLeft = 3;
     while (1)
     {
-
+        system("cls");
         printf("\n\n\n\n");
         printf("                        You have %d tries left.\n", timeLeft);
         printf("\n\n\n                      ENTER VOTER ID (as per your EPIC):   ");
@@ -215,7 +215,7 @@ void voting_screen()
                 }
                 else
                 {
-                    if (nameTryLeft == 0)
+                    if (nameTryLeft < 1)
                     {
                         printf("\n\n\n\n           You ran out of attempts. Switching to main panel.\n\n\n");
                         main_panel();
