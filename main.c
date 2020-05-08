@@ -31,6 +31,41 @@ int main() //completed
     printf("\t\t\t\t\tPress any key to continue: ");
     getch();
     system("cls");
+
+    printf("\n\n");
+    printf("                                       Satyamev Jayate- Bharat Nirvachan Aayog\n\n");
+    Sleep(500);
+    printf("-----------------------------------------------------------------------------------------------------------------------\n\n");
+    Sleep(500);
+    printf("                      **************** WELCOME TO ELECTION COMMISSION OF INDIA ***************                 \n");
+    Sleep(500);
+    printf("                                               Bihar Division, Patna                                           \n\n\n");
+    Sleep(500);
+    printf("                  BIHAR VIDHAN SABHA NIRVACHAN 2020           BIHAR LEGISLATIVE ASSEMBLY ELECTIONS 2020         \n\n");
+    Sleep(500);
+    printf("                                  ECI presenting the first online voting system of India.                        \n");
+    printf("                                         Apologies for slow processing, if any.\n\n\n\n");
+    Sleep(500);
+    printf("                                          Press any key to continue !!!                                \n\n\n");
+    Sleep(500);
+    printf("________________________________________________________________________________________________________________________\n\n\n");
+    Sleep(500);
+    printf("                                       � Copyright Election Commission of India                                    \n\n");
+    printf("\n\n                                                      ");
+    Sleep(1000);
+
+    getch();
+
+    Sleep(200);
+    int i;
+    for (i = 0; i <= 100; i++)
+    {
+        printf("\r");
+        printf("\t\t\t\t\t\t\tLoading : %d %%", i);
+        Sleep(5);
+    }
+    Sleep(1000); //Delay of 1 sec= Sleep(1000).
+
     main_panel();
 
     return 0;
@@ -293,6 +328,9 @@ void voting_screen() //completed
                     int toCheckIfVoted = tempVoter->voted;
                     if (toCheckIfVoted)
                     {
+                        printf("\n\n\n\n\n You have already voted. Exiting to main panel.\n\n\n\n\n\n");
+                        Sleep(1000);
+                        main_panel();
                         printf("\n\n       You have already voted. Exiting to main panel.");
                         Sleep(2000);
                         ex();
@@ -300,6 +338,8 @@ void voting_screen() //completed
                     else
                     {
                         system("cls");
+                        printf("\n\n\t\t\t You have not voted.You can now view candidate list.\n\n");
+                        printf("\n\n              Below is the list of all candidates: \n\n");
                         printf("\n\n\t\t\t You have not voted.You can now view candidate list.\n");
                         printf("\n               Below is the list of all candidates: \n\n");
                         candidate *listCandidate = rootC;
