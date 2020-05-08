@@ -3,7 +3,7 @@
 #include <conio.h.>
 #include <windows.h>
 #include <stdbool.h>
-#include "header.h"
+#include "original.h"
 
 #define ADMINID 123456
 
@@ -276,7 +276,7 @@ void voting_screen() //completed
                 printf("\n\n");
                 printf("                        You have %d tries left.", tempVoter->NoOfAttempt);
                 printf("\n\n                       Enter your name as per VOTER ID:   ");
-                getchar();
+               
                 gets(inputtedName);
                 printf("\n\n\n");
                 int res = strcmpi(tempVoter->name, inputtedName);
@@ -338,13 +338,16 @@ void voting_screen() //completed
                         Sleep(1000);
                         ex();
                     }
-                    printf("\n\n\n            Voter Name entered was wrong.\n\t\tPress 1 to try again.\n\t\tPress 2 to exit to the Home Screen\n\n");
+                    printf("\n\n\n\t\tVoter Name entered was wrong.\n\t\tPress 1 to try again.\n\t\tPress 2 to exit to the Home Screen\n\n");
                     tempVoter->NoOfAttempt--;
                     int c;
                     scanf("%d", &c);
                     if (c == 2)
+                    {
                         ex();
-                        
+                        fflush(stdin);
+                    }
+                    fflush(stdin);
                 }
             }
         }
