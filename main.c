@@ -3,7 +3,7 @@
 #include <conio.h.>
 #include <windows.h>
 #include <stdbool.h>
-#include "header.h"
+#include "original.h"
 
 #define ADMINID 123456
 
@@ -72,7 +72,7 @@ void main_panel() //completed
         printf("                  BIHAR VIDHAN SABHA NIRVACHAN 2020           BIHAR LEGISLATIVE ASSEMBLY ELECTIONS 2020         \n\n");
         Sleep(200);
         printf("                                  ECI presenting the first online voting system of India.                        \n");
-        printf("\n                                             Vote count %d / %d\n\n\n\n",numOfVotesCasted,TotalVoters);
+        printf("\n                                             Vote count %d / %d\n\n\n\n", numOfVotesCasted, TotalVoters);
         Sleep(200);
         printf("                                       � Copyright Election Commission of India                                    \n\n");
         Sleep(200);
@@ -86,7 +86,7 @@ void main_panel() //completed
 
         Sleep(200);
         int i;
-        for (i = 0; i <= 100; i+=5)
+        for (i = 0; i <= 100; i += 5)
         {
             printf("\r");
             printf("\t\t\t\t\t\tLoading : %d %%", i);
@@ -261,8 +261,6 @@ void voting_screen() //completed
     while (1)
     {
         system("cls");
-        printf("\n\n\n\n");
-        printf("                        You have %d tries left.\n", timeLeft);
         printf("\n\n\n                      ENTER VOTER ID (as per your EPIC):   ");
         scanf("%lu", &inputtedVoterID);
         getchar();
@@ -270,14 +268,15 @@ void voting_screen() //completed
         voter *tempVoter = search(root, inputtedVoterID);
         if (tempVoter)
         {
-            int nameTryLeft = 3;
+
             system("cls");
             printf("\n\n         Voter ID exists. Please enter correct name for further verification.\n\n\n");
             while (1)
             {
                 printf("\n\n");
-                printf("                        You have %d tries left.", nameTryLeft);
+                printf("                        You have %d tries left.", tempVoter->NoOfAttempt);
                 printf("\n\n                       Enter your name as per VOTER ID:   ");
+                getchar();
                 gets(inputtedName);
                 printf("\n\n\n");
                 int res = strcmpi(tempVoter->name, inputtedName);
@@ -333,25 +332,25 @@ void voting_screen() //completed
                 }
                 else
                 {
-                    if (nameTryLeft < 1)
+                    if (tempVoter->NoOfAttempt == 1)
                     {
-                        printf("\n\n\n\n           You ran out of attempts. Switching to main panel.\n\n\n");
+                        printf("\n\n\n\n           You ran out of attempts.\nYour ID has been blocked\nSwitching to main panel.\n\n\n");
+                        Sleep(1000);
                         ex();
                     }
-                    printf("\n\n\n            Voter Name entered was wrong. Enter correct data.\n");
-                    nameTryLeft--;
+                    printf("\n\n\n            Voter Name entered was wrong.\n\t\tPress 1 to try again.\n\t\tPress 2 to exit to the Home Screen\n\n");
+                    tempVoter->NoOfAttempt--;
+                    int c;
+                    scanf("%d", &c);
+                    if (c == 2)
+                        ex();
+                        
                 }
             }
         }
         else
         {
-            if (timeLeft == 0)
-            {
-                printf("\n\n\n\n           You ran out of attempts. Switching to main panel.\n\n\n");
-                main_panel();
-            }
-            printf("\n\n\n            Voter ID entered was wrong. Enter correct data.\n");
-            timeLeft--;
+            printf("\n\n\n            Voter ID entered was wrong. Enter correct data.\nRe-enter your ID\n\n");
         }
     }
 }
