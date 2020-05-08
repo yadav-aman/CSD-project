@@ -70,7 +70,7 @@ void main_panel() //completed
         printf("                  BIHAR VIDHAN SABHA NIRVACHAN 2020           BIHAR LEGISLATIVE ASSEMBLY ELECTIONS 2020         \n\n");
         Sleep(200);
         printf("                                  ECI presenting the first online voting system of India.                        \n");
-        printf("                                         Apologies for slow processing, if any.\n\n\n\n");
+        printf("\n                                             Vote count %d / %d\n\n\n\n",numOfVotesCasted,TotalVoters);
         Sleep(200);
         printf("                                          Press any key to continue !!!                                \n\n\n");
         Sleep(200);
@@ -88,7 +88,7 @@ void main_panel() //completed
         {
             printf("\r");
             printf("\t\t\t\t\t\t\tLoading : %d %%", i);
-            Sleep(3);
+            Sleep(1);
         }
         Sleep(1000); //Delay of 1 sec= Sleep(1000).
 
