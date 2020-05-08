@@ -295,7 +295,8 @@ void voting_screen() //completed
                     printf("              Your Name: %s\n", tempVoter->name);
                     printf("              Your Gender: %s\n", tempVoter->sex);
                     printf("              Your date of birth: %d-%d-%d\n", tempVoter->date, tempVoter->month, tempVoter->year);
-                    printf("\n\n\t\t\t Press any key to continue!!");
+                    printf("              Your Address: %s\n", tempVoter->address);
+                    printf("\n\n\t\t\t Press any key to continue!!\n\t\t\t");
                     getch();
                     int toCheckIfVoted = tempVoter->voted;
                     if (toCheckIfVoted)
@@ -341,10 +342,10 @@ void voting_screen() //completed
                     if (tempVoter->NoOfAttempt == 1)
                     {
                         printf("\n\n\n\nYou ran out of attempts.\nYour ID has been blocked\nSwitching to main panel.\n\n\n");
-                        Sleep(1000);
+                        Sleep(3000);
                         ex();
                     }
-                    printf("\n\n\n\t\tVoter Name entered was wrong.\n\t\tPress 1 to try again.\n\t\tPress 2 to exit to the Home Screen\n\n");
+                    printf("\n\n\n\t\tVoter Name entered was wrong.\n\t\tPress 1 to try again.\n\t\tPress 2 to exit to the Home Screen\n\n\t\t");
                     tempVoter->NoOfAttempt--;
                     int c;
                     scanf("%d", &c);
@@ -360,6 +361,7 @@ void voting_screen() //completed
         else
         {
             printf("\n\n\n            Voter ID entered was wrong. Enter correct data.\nRe-enter your ID\n\n");
+            sleep(3000);
         }
     }
 }
