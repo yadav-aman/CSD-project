@@ -39,7 +39,7 @@ int main()
     printf("                                  ECI presenting the first online voting system of India.                        \n");
     printf("                                         Apologies for slow processing, if any.\n\n\n\n");
     Sleep(500);
-    printf("                                          Press / to enter the main panel !!!                                \n\n\n");
+    printf("                                          Press any key to continue !!!                                \n\n\n");
     Sleep(500);
     printf("________________________________________________________________________________________________________________________\n\n\n");
     Sleep(500);
@@ -47,33 +47,21 @@ int main()
     printf("\n\n                                                      ");
     Sleep(1000);
 
-    char ch;
-    scanf("%c", &ch);
+    getch();
 
-    if (ch != 47)
+
+    Sleep(200);
+    int i;
+    for(i=0;i<=100;i++)
     {
-        printf("\n           INPUT ERROR");
-        Sleep(1000);
-        printf("\n\n        System Failure");
-        Sleep(500);
-
-        ex();
-        return 0;
+        printf("\r");
+        printf("\t\t\t\t\t\t\tLoading : %d %%",i);
+        Sleep(5);
     }
+    Sleep(1000); //Delay of 1 sec= Sleep(1000).
 
-    else
-    {
-        Sleep(200);
-        printf("\n\n                                                  LOADING.....                                                  \n");
-        Sleep(200);
-        printf("\n                                                  LOADING.....                                                  \n");
-        Sleep(200);
-        printf("\n                                                  LOADING.....                                                  \n");
+    main_panel();
 
-        Sleep(1000); //Delay of 1 sec= Sleep(1000).
-
-        main_panel();
-    }
 
     return 0;
 }
@@ -91,11 +79,6 @@ void ex()
         printf("\t\t\t\t\t\t\t\r");
         Sleep(1000);
     }
-    // printf("\n\n                                           3");
-    // Sleep(1000);
-    // printf("\n\n                                           2");
-    // Sleep(1000);
-    // printf("\n\n                                           1\n\n\n\n\n\n\n\n");
     Sleep(500);
 }
 void main_panel()
