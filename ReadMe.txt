@@ -21,7 +21,7 @@ Steps Required for successful execution-
 
 Contributions-
 Prashant - Interface and linked list
-Aman Yadav - File Handling and Database search
+Aman Yadav - File Handling(all input and output), Debuging and Database search
 Aniket Gupta - AVL tree
 Shagun -
 Naman - 
