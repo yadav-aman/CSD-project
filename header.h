@@ -360,7 +360,7 @@ void electionStatistics(candidate **list, long int totalVotesCasted)
 
 		// to store the maximum number of votes won by a candidate/s
 		// i.e. if more than one candidate have got the same number of highest votes
-		int maxVotes, maxCounter = 0;
+		int maxVotes=0, maxCounter = 0;
 		candidate *winner;
 		printf("\n");
 		while (crt != NULL)
