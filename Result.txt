@@ -3,21 +3,21 @@
 ELECTION STATISTICS:
 
 Total Number of Voters on the Electoral roll: 50
-Votes Casted: 3
-Voter Turnout: 6.00%
+Votes Casted: 1
+Voter Turnout: 2.00%
 
 Arvind Kejriwal has got 0 votes
 Narendra Modi has got 0 votes
 Tejaswi Yadav has got 0 votes
 Ram Vilas Paswan has got 0 votes
-Pushpam Priya Choudhary has got 0 votes
-Nitish Kumar has got 2 votes
-NOTA has got 1 votes
+Pushpam Priya Choudhary has got 1 votes
+Nitish Kumar has got 0 votes
+NOTA has got 0 votes
 
 Winner of the Electons is: 
 
-Name: Nitish Kumar
-Party: Janata Dal (United)
-Logo: Arrow
-Votes: 2
-Vote Percentage: 66.00%
+Name: Pushpam Priya Choudhary
+Party: Plurals
+Logo: Flying Horse
+Votes: 1
+Vote Percentage: 100.00%
