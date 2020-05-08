@@ -60,22 +60,22 @@ void main_panel() //completed
         system("cls");
         printf("\n\n");
         printf("                                       Satyamev Jayate- Bharat Nirvachan Aayog\n\n");
-        Sleep(500);
+        Sleep(200);
         printf("-----------------------------------------------------------------------------------------------------------------------\n\n");
-        Sleep(500);
+        Sleep(200);
         printf("                      **************** WELCOME TO ELECTION COMMISSION OF INDIA ***************                 \n");
-        Sleep(500);
+        Sleep(200);
         printf("                                               Bihar Division, Patna                                           \n\n\n");
-        Sleep(500);
+        Sleep(200);
         printf("                  BIHAR VIDHAN SABHA NIRVACHAN 2020           BIHAR LEGISLATIVE ASSEMBLY ELECTIONS 2020         \n\n");
-        Sleep(500);
+        Sleep(200);
         printf("                                  ECI presenting the first online voting system of India.                        \n");
         printf("                                         Apologies for slow processing, if any.\n\n\n\n");
-        Sleep(500);
+        Sleep(200);
         printf("                                          Press any key to continue !!!                                \n\n\n");
-        Sleep(500);
+        Sleep(200);
         printf("________________________________________________________________________________________________________________________\n\n\n");
-        Sleep(500);
+        Sleep(200);
         printf("                                       � Copyright Election Commission of India                                    \n\n");
         printf("\n\n                                                      ");
         Sleep(1000);
@@ -88,7 +88,7 @@ void main_panel() //completed
         {
             printf("\r");
             printf("\t\t\t\t\t\t\tLoading : %d %%", i);
-            Sleep(5);
+            Sleep(3);
         }
         Sleep(1000); //Delay of 1 sec= Sleep(1000).
 
@@ -124,7 +124,8 @@ void main_panel() //completed
                 break;
 
             default:
-                printf("Invalid Choice\nEnter Again");
+                printf("/t/t/t/t/n/n/n/nInvalid Choice\nEnter Again");
+                Sleep(1000);
                 break;
             }
         }
@@ -216,39 +217,39 @@ void voting_screen() //completed
 {
     system("cls");
     printf("\n\n");
-    Sleep(500);
+    Sleep(200);
     printf("                         NOTE: Please make sure that you're registered in the electoral roll\n\n\n");
-    Sleep(1000);
+    Sleep(500);
     printf("                          Your ID will be blocked after 3 unsuccessful attempts !!!\n\n");
-    Sleep(1000);
+    Sleep(200);
     printf("                                    You're entering the data in the feeding panel\n");
-    Sleep(500);
+    Sleep(200);
     printf("                                                       . ");
-    Sleep(500);
+    Sleep(200);
     printf(" . ");
-    Sleep(500);
+    Sleep(200);
     printf(" . \n");
 
-    Sleep(500);
+    Sleep(200);
     printf("                                                 Did you know?\n\n");
-    Sleep(500);
+    Sleep(200);
     printf("                               BIHAR: THE FIRST STATE TO WITNESS BOOTH CAPTURING\n");
-    Sleep(1000);
+    Sleep(500);
     printf("       The first instance of booth capturing in India was recorded in 1957 in the General Elections of that\n");
     printf("                                 year in Rachiyahi of Begusarai constituency.\n");
-    Sleep(1500);
+    Sleep(500);
     printf("                                                       . ");
-    Sleep(500);
+    Sleep(200);
     printf(" . ");
-    Sleep(500);
+    Sleep(200);
     printf(" . ");
-    Sleep(500);
+    Sleep(200);
     printf(" . ");
-    Sleep(500);
+    Sleep(200);
     printf(" . ");
-    Sleep(500);
+    Sleep(200);
     printf(" . ");
-    Sleep(500);
+    Sleep(200);
     printf(" . \n");
     printf("                                            Thanks for your patience.\n\n\n\n\n");
     Sleep(500);

@@ -3,14 +3,16 @@
 ELECTION STATISTICS:
 
 Total Number of Voters on the Electoral roll: 50
-Votes Casted: 44
-Voter Turnout: 88.00%
+Votes Casted: 1
+Voter Turnout: 2.00%
 
+Arvind Kejriwal has got 0 votes
+Narendra Modi has got 0 votes
 Tejaswi Yadav has got 0 votes
 Ram Vilas Paswan has got 0 votes
 Pushpam Priya Choudhary has got 0 votes
 Nitish Kumar has got 0 votes
-NOTA has got 0 votes
+NOTA has got 1 votes
 
 
 The Election has been tied between the following 0 candidates:
