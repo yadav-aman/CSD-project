@@ -337,8 +337,8 @@ void electionStatistics(candidate **list, long int totalVotesCasted)
 	}
 	else if (totalVotesCasted == 0)
 	{
-		printf("\nERROR\nNo voter list found");
-		fprintf(FilePointer, "\nERROR: No voter list found");
+		printf("\nERROR\nNo Vote Casted");
+		fprintf(FilePointer, "\nERROR: No Vote Casted");
 		fclose(FilePointer);
 		return;
 	}
