@@ -235,7 +235,7 @@ void voting_screen() //completed
     Sleep(200);
     printf("                               BIHAR: THE FIRST STATE TO WITNESS BOOTH CAPTURING\n");
     Sleep(500);
-    printf("       The first instance of booth capturing in India was recorded in 1957 in the General Elections of that\n");
+    printf("               The first instance of booth capturing in India was recorded in 1957 in the General Elections of that\n");
     printf("                                 year in Rachiyahi of Begusarai constituency.\n");
     Sleep(500);
     printf("                                                       . ");
