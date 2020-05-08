@@ -200,12 +200,12 @@ void importVoters()
 
 	if (FilePointer == NULL)
 	{
-		printf("ERROR: Failed to open file.\nMake sure the required file is in current directory.\n");
+		printf("\t\t\t\t\tERROR: Failed to open file.\nMake sure the required file is in current directory.\n");
 		return;
 	}
 	else
 	{
-		printf("Message: Voters Database Opened\nLoading Data...\n");
+		printf("\t\t\t\t\tMessage: Voters Database Opened\n\t\t\t\t\tLoading Data...\n");
 		fgets(line, 100, FilePointer); // storing first line in string 'line' from file to skip it
 
 		while (fgets(line, 100, FilePointer)) // storing each line(one at a time) from the file in the string 'line'
@@ -246,7 +246,7 @@ void importVoters()
 			root = insertvoter(root, temp);
 			TotalVoters++;
 		}
-		printf("Message: Voters Data Successfully Loaded\n\n");
+		printf("\t\t\t\t\tMessage: Voters Data Successfully Loaded\n\n");
 		fclose(FilePointer); // closing file
 	}
 }
@@ -263,17 +263,20 @@ void importCandidates()
 
 	if (FilePointer == NULL)
 	{
-		printf("ERROR: Failed to open file.\nMake sure the required file is in current directory.\n");
+		printf("\t\t\t\t\tERROR: Failed to open file.\n\t\t\t\t\tMake sure the required file is in current directory.\n");
 		return;
 	}
 	else
 	{
-		printf("Message: Candidates Database Opened\nLoading Data...\n");
+		printf("\t\t\t\t\tMessage: Candidates Database Opened\n\t\t\t\t\tLoading Data...\n");
 		fgets(line, 100, FilePointer); // skip first line
 
 		while (fgets(line, 100, FilePointer))
 		{
 			char *data = strtok(line, ",");
+			int candid = atoi(data);
+
+			data = strtok(NULL,",");
 			char *name = data;
 
 			data = strtok(NULL, ",");
@@ -288,9 +291,9 @@ void importCandidates()
 			data = strtok(NULL, ",");
 			int noofvotes = atoi(data);
 
-			insertCandidate(&rootC, name, partyname, partysymbol, sex, noofvotes);
+			insertCandidate(&rootC, candid, name, partyname, partysymbol, sex, noofvotes);
 		}
-		printf("Message: Candidates Successfully Loaded\n\n");
+		printf("\t\t\t\t\tMessage: Candidates Successfully Loaded\n\n");
 		fclose(FilePointer); // closing file
 	}
 }

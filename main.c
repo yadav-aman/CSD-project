@@ -17,9 +17,12 @@ void vote_bank();
 
 int main()
 {
+    system("cls");
+    printf("\n\n\n\n\n\n\n\n");
     importVoters();
     importCandidates();
-    Sleep(500);
+    printf("\t\t\t\t\tPress any key to continue: ");
+    getch();
     system("cls");
 
     printf("\n\n");
@@ -60,11 +63,11 @@ int main()
 
     else
     {
-        Sleep(500);
+        Sleep(200);
         printf("\n\n                                                  LOADING.....                                                  \n");
-        Sleep(500);
+        Sleep(200);
         printf("\n                                                  LOADING.....                                                  \n");
-        Sleep(500);
+        Sleep(200);
         printf("\n                                                  LOADING.....                                                  \n");
 
         Sleep(1000); //Delay of 1 sec= Sleep(1000).
@@ -79,13 +82,20 @@ void ex()
 {
     system("cls");
 
-    printf("\n\n                                     Closing OVS in...");
+    printf("\n\n                                     Closing OVS in...\n");
     Sleep(1000);
-    printf("\n\n                                           3");
-    Sleep(1000);
-    printf("\n\n                                           2");
-    Sleep(1000);
-    printf("\n\n                                           1\n\n\n\n\n\n\n\n");
+    int i=4;
+    while(i--)
+    {
+        printf("\t\t\t\t\t\t\t%d seconds",i);
+        printf("\t\t\t\t\t\t\t\r");
+        Sleep(1000);
+    }
+    // printf("\n\n                                           3");
+    // Sleep(1000);
+    // printf("\n\n                                           2");
+    // Sleep(1000);
+    // printf("\n\n                                           1\n\n\n\n\n\n\n\n");
     Sleep(500);
 }
 void main_panel()
@@ -94,13 +104,13 @@ void main_panel()
 
     printf("\n\n\n\n\n\n\n\n");
     printf("                    \t\t\t       *** MAIN PANEL ***\n\n");
-    Sleep(500);
+    Sleep(200);
     printf("                    \t\t\t(1) VOTE YOUR CANDIDATE ........\n\n");
-    Sleep(500);
+    Sleep(200);
     printf("                    \t\t\t(2) ENTER ADMIN PANEL ........\n\n");
-    Sleep(500);
+    Sleep(200);
     printf("                    \t\t\t(3) CANDIDATE IN LEAD ........\n\n");
-    Sleep(500);
+    Sleep(200);
     printf("                    \t\t\t(4) EXIT THE OVS........\n\n\n"); //OVS: Online Voting System
 
     int choice;
