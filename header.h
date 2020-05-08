@@ -219,7 +219,7 @@ void importVoters()
 
 	// Opening file in read-only mode and pointing the FilePointer to the start of the file
 	FilePointer = fopen("VoterList.csv", "r");
-	char line[100];
+	char line[150];
 
 	if (FilePointer == NULL)
 	{
@@ -229,9 +229,9 @@ void importVoters()
 	else
 	{
 		printf("\t\t\t\t\tMessage: Voters Database Opened\n\t\t\t\t\tLoading Data...\n");
-		fgets(line, 100, FilePointer); // storing first line in string 'line' from file to skip it
+		fgets(line, 150, FilePointer); // storing first line in string 'line' from file to skip it
 
-		while (fgets(line, 100, FilePointer)) // storing each line(one at a time) from the file in the string 'line'
+		while (fgets(line, 150, FilePointer)) // storing each line(one at a time) from the file in the string 'line'
 		{
 			voter *temp = (voter *)malloc(sizeof(voter));
 
@@ -282,7 +282,7 @@ void importCandidates()
 
 	// Opening file in read-only mode and pointing the FilePointer to the start of the file
 	FilePointer = fopen("CandidateList.csv", "r");
-	char line[100];
+	char line[150];
 
 	if (FilePointer == NULL)
 	{
@@ -292,9 +292,9 @@ void importCandidates()
 	else
 	{
 		printf("\t\t\t\t\tMessage: Candidates Database Opened\n\t\t\t\t\tLoading Data...\n");
-		fgets(line, 100, FilePointer); // skip first line
+		fgets(line, 150, FilePointer); // skip first line
 
-		while (fgets(line, 100, FilePointer))
+		while (fgets(line, 150, FilePointer))
 		{
 			char *data = strtok(line, ",");
 			int candid = atoi(data);
