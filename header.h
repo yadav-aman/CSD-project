@@ -410,3 +410,40 @@ void electionStatistics(candidate **list, long int totalVotesCasted)
 	printf("MESSAGE: Results Saved\n");
 	fclose(FilePointer);
 }
+
+//--------------------------------------- ELECTION COMMISSION LOGO ----------------------------------------
+
+void logo()
+{
+	printf("\n");
+	printf("	                                .::::-`                          \n");
+	printf("	                           `  `::::::::`                         \n");
+	printf("	                        `+mN+``::::::::.                         \n");
+	printf("	                      `oNNhhMm+.::::::-                          \n");
+	printf("	                    .yNNy++++dMm/`..`                            \n");
+	printf("	                  :hMms+++++++odMd-        `..``                 \n");
+	printf("	                /dMdo++++++++++hMNo`     `::::::-`               \n");
+	printf("	             `oNMho+++++++++odMm+`  .o.  :::::::::               \n");
+	printf("	           .sNNh++++++++++smMd:   :hMNNo`-:::::::-               \n");
+	printf("	         -yMmy++++++++++yNMy-   /dMh-`+NN+--:::-.                \n");
+	printf("	       /dMms++++++++++hNNs.  `omNs.    `sNm/                     \n");
+	printf("	    `+mMdo+++++++++ohMm+`  .sNmo`        .dMd.       `.--.`      \n");
+	printf("	   `dMNo+++++++++sdMd/   -yMd/          /dMy-       -:::::::     \n");
+	printf("	    `+NNy++++++smMh:   /dMh:         `oNNs.   -yy. .::::::::.    \n");
+	printf("	      `sNNy++yNNs.  `+mMy-         .sNmo`   :hMNNMs.::::::::`    \n");
+	printf("	        .yMNNNo`  .oNNo`         -yMd/    /dMmhyydNNo.----.      \n");
+	printf("	          -y/`  -yMm+`         /dMh:   `oNMmyyyyyyydMN+          \n");
+	printf("	              :hMd:         `+mNy.   .sNNdyyyyyyyyyydMMy         \n");
+	printf("	              /mMs`       .sNNo`   :hMNdyyyyyyyyyydNMy-          \n");
+	printf("	                +NNo`   -yMm+`   /dMmhyyyyyyyyyydMNs.            \n");
+	printf("	                 `oNN+:dMh:   `+mMmhyyyyyyyyyhmMm+`              \n");
+	printf("	                   `sMMy-   .sNNdyyyyyyyyyyhmMd/                 \n");
+	printf("	                     ..   -yMNdyyyyyyyyyydNMh-                   \n");
+	printf("	                        .dMNhyyyyyyyyyydNNs.                     \n");
+	printf("	                         :dMmyyyyyyyymMNo`                       \n");
+	printf("	                           /mMmyyyhmMd/                          \n");
+	printf("	                             +NMmNMh:                            \n");
+	printf("	                              `oNy-                              \n");
+	printf("\n\n           	  ELECTION COMMISSION OF INDIA\n");
+	printf("	   	   MERA VOTE MERA ADHIKAAR\n");
+}

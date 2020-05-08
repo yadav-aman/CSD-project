@@ -25,6 +25,12 @@ void adminPanel();
 int main() //completed
 {
     system("cls");
+    printf("\n\n\n\n\n\t\t\t\t\t\tFOR BETTER EXPERIENCE PLEASE OPEN TERMINAL IN FULL SCREEN MODE\n\n\t\t\t\t\t\tPRESS ANY KEY TO CONTINUE\n\t\t\t\t\t\t");
+    getch();
+    system("cls");
+    logo();
+    Sleep(4000);
+    system("cls");
     printf("\n\n\n\n\n\n\n\n");
     importVoters();
     importCandidates();
