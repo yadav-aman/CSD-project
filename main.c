@@ -167,6 +167,7 @@ void adminPanel() //completed
     int id, ch;
     while (1)
     {
+        system("cls");
         printf("\n\nEnter Admin Id: ");
         scanf("%d", &id);
         if (id == ADMINID)
@@ -287,7 +288,7 @@ void voting_screen() //completed
                     printf("              Your Name: %s\n", tempVoter->name);
                     printf("              Your Gender: %s\n", tempVoter->sex);
                     printf("              Your date of birth: %d-%d-%d\n", tempVoter->date, tempVoter->month, tempVoter->year);
-                    printf("\n\n\t\t\tEnter any key to continue:  ");
+                    printf("\n\n\t\t\t Press any key to continue!!");
                     getch();
                     int toCheckIfVoted = tempVoter->voted;
                     if (toCheckIfVoted)
