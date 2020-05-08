@@ -175,7 +175,7 @@ void voting_screen()
         if (tempVoter)
         {
             int nameTryLeft = 3;
-
+            system("cls");
             printf("\n\n\n       Voter ID exists. Please enter correct name for further verification.\n\n\n");
             while (1)
             {
@@ -187,12 +187,15 @@ void voting_screen()
                 int res = strcmpi(tempVoter->name, inputtedName);
                 if (res == 0)
                 {
+                    system("cls");
                     printf("\n\n\n\n\n       You are a registered voter. Congrats.\n");
                     printf("\n\n                     Here are your details.\n\n\n\n\n");
                     printf("\n\n\n\n      Your Voter ID: %lu\n", tempVoter->voterID);
                     printf("              Your Name: %s\n", tempVoter->name);
                     printf("              Your Gender: %s\n", tempVoter->sex);
                     printf("              Your date of birth: %d-%d-%d\n", tempVoter->date, tempVoter->month, tempVoter->year);
+                    printf("\n\n\t\t\tEnter any key to continue:  ");
+                    getch();
                     int toCheckIfVoted = tempVoter->voted;
                     if (toCheckIfVoted)
                     {
@@ -201,13 +204,14 @@ void voting_screen()
                     }
                     else
                     {
-                        printf("\n\n\n\n\n You have not voted.You can now view candidate list.\n\n\n\n\n\n");
                         system("cls");
-                        printf("\n\n\n\n              Below is the list of all candidates: \n\n\n\n");
+                        printf("\n\n\t\t\t You have not voted.You can now view candidate list.\n\n\n\n\n\n");
+                        printf("\n\n              Below is the list of all candidates: \n\n\n\n");
                         candidate *listCandidate = rootC;
                         list_all_candidates(listCandidate);
                         printf("\n\n          Enter which candidate you want to vote for by entering his ID:\n");
                         scanf("%d", &candIdSelected);
+                        getchar();
                         printf("this is just a testing printf");
                         Sleep(500);
                         printf("Ya now this vote is accounted for");
