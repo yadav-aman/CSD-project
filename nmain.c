@@ -238,7 +238,7 @@ void voting_screen() //completed
     printf("               The first instance of booth capturing in India was recorded in 1957 in the General Elections of that\n");
     printf("                                 year in Rachiyahi of Begusarai constituency.\n");
     Sleep(500);
-    printf("                                                       . ");
+    printf("                                               . ");
     Sleep(200);
     printf(" . ");
     Sleep(200);
