@@ -31,39 +31,6 @@ int main() //completed
     printf("\t\t\t\t\tPress any key to continue: ");
     getch();
     system("cls");
-
-    printf("\n\n");
-    printf("                                       Satyamev Jayate- Bharat Nirvachan Aayog\n\n");
-    Sleep(500);
-    printf("-----------------------------------------------------------------------------------------------------------------------\n\n");
-    Sleep(500);
-    printf("                      **************** WELCOME TO ELECTION COMMISSION OF INDIA ***************                 \n");
-    Sleep(500);
-    printf("                                               Bihar Division, Patna                                           \n\n\n");
-    Sleep(500);
-    printf("                  BIHAR VIDHAN SABHA NIRVACHAN 2020           BIHAR LEGISLATIVE ASSEMBLY ELECTIONS 2020         \n\n");
-    Sleep(500);
-    printf("                                  ECI presenting the first online voting system of India.                        \n");
-    printf("                                         Apologies for slow processing, if any.\n\n\n\n");
-    Sleep(500);
-    printf("                                          Press any key to continue !!!                                \n\n\n");
-    Sleep(500);
-    printf("________________________________________________________________________________________________________________________\n\n\n");
-    Sleep(500);
-    printf("                                       � Copyright Election Commission of India                                    \n\n");
-    printf("\n\n                                                      ");
-    Sleep(1000);
-
-    getch();
-
-    Sleep(200);
-    int i;
-    for (i = 0; i <= 100; i++)
-    {
-        printf("\r");
-        printf("\t\t\t\t\t\t\tLoading : %d %%", i);
-        Sleep(5);
-    }
     Sleep(1000); //Delay of 1 sec= Sleep(1000).
 
     main_panel();
