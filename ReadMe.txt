@@ -4,6 +4,7 @@ To do -
  you have implemented along with all the data structures that you have used in your project)
 
 About Our Project-
+We created a voting system that can automatically count the number of votes after the election.
 
 Features and Functions of the project-
 1. Our program can read data from CSV file and can create the required data structure in the computer’s memory.

@@ -225,7 +225,7 @@ void voting_screen() //completed
     Sleep(200);
     printf("                                    You're entering the data in the feeding panel\n");
     Sleep(200);
-    printf("                                                       . ");
+    printf("                                                     . ");
     Sleep(200);
     printf(" . ");
     Sleep(200);
@@ -234,12 +234,12 @@ void voting_screen() //completed
     Sleep(200);
     printf("                                                 Did you know?\n\n");
     Sleep(200);
-    printf("                               BIHAR: THE FIRST STATE TO WITNESS BOOTH CAPTURING\n");
+    printf("                              BIHAR: THE FIRST STATE TO WITNESS BOOTH CAPTURING\n");
     Sleep(500);
     printf("               The first instance of booth capturing in India was recorded in 1957 in the General Elections of that\n");
     printf("                                 year in Rachiyahi of Begusarai constituency.\n");
     Sleep(500);
-    printf("                                               . ");
+    printf("                                             . ");
     Sleep(200);
     printf(" . ");
     Sleep(200);
