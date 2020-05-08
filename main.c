@@ -282,7 +282,7 @@ void voting_screen() //completed
                 printf("\n\n");
                 printf("                        You have %d tries left.", tempVoter->NoOfAttempt);
                 printf("\n\n                       Enter your name as per VOTER ID:   ");
-               
+
                 gets(inputtedName);
                 printf("\n\n\n");
                 int res = strcmpi(tempVoter->name, inputtedName);
@@ -361,7 +361,7 @@ void voting_screen() //completed
         else
         {
             printf("\n\n\n            Voter ID entered was wrong. Enter correct data.\nRe-enter your ID\n\n");
-            sleep(3000);
+            Sleep(3000);
         }
     }
 }
