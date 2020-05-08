@@ -334,7 +334,7 @@ void voting_screen() //completed
                 {
                     if (tempVoter->NoOfAttempt == 1)
                     {
-                        printf("\n\n\n\n           You ran out of attempts.\nYour ID has been blocked\nSwitching to main panel.\n\n\n");
+                        printf("\n\n\n\nYou ran out of attempts.\nYour ID has been blocked\nSwitching to main panel.\n\n\n");
                         Sleep(1000);
                         ex();
                     }
