@@ -175,7 +175,7 @@ void adminPanel() //completed
             printf("\n\t\t\t\t\tID Matched\n\t\t\t\t\tYou have entered the Admin Panel\n");
             while (1)
             {
-                printf("\n\n\t\t\t\t\tEnter: \n\t\t\t\t\t1.To close voting\n\t\t\t\t\t2.To view Results\n\t\t\t\t\t3.Go back to the main panel\n");
+                printf("\n\n\t\t\t\t\tEnter: \n\t\t\t\t\t1.To close voting\n\t\t\t\t\t2.To view Results\n\t\t\t\t\t3.Go back to the main panel\n\t\t\t\t\t");
                 scanf("%d", &ch);
                 switch (ch)
                 {
@@ -196,6 +196,7 @@ void adminPanel() //completed
                         break;
                     }
                     else
+                        system("cls");
                         electionStatistics(&rootC, numOfVotesCasted);
                     break;
 
