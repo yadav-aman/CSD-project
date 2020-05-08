@@ -49,19 +49,17 @@ int main()
 
     getch();
 
-
     Sleep(200);
     int i;
-    for(i=0;i<=100;i++)
+    for (i = 0; i <= 100; i++)
     {
         printf("\r");
-        printf("\t\t\t\t\t\t\tLoading : %d %%",i);
+        printf("\t\t\t\t\t\t\tLoading : %d %%", i);
         Sleep(5);
     }
     Sleep(1000); //Delay of 1 sec= Sleep(1000).
 
     main_panel();
-
 
     return 0;
 }
@@ -72,10 +70,10 @@ void ex()
 
     printf("\n\n                                     Closing OVS in...\n");
     Sleep(1000);
-    int i=4;
-    while(i--)
+    int i = 4;
+    while (i--)
     {
-        printf("\t\t\t\t\t\t\t%d seconds",i);
+        printf("\t\t\t\t\t\t\t%d seconds", i);
         printf("\t\t\t\t\t\t\t\r");
         Sleep(1000);
     }
@@ -160,7 +158,6 @@ void voting_screen()
     printf("                                            Thanks for your patience.\n\n\n\n\n");
     Sleep(500);
 
-
     int timeLeft = 3;
     while (1)
     {
@@ -200,13 +197,14 @@ void voting_screen()
                     if (toCheckIfVoted)
                     {
                         printf("\n\n\n\n\n You have already voted. Exiting to main panel.\n\n\n\n\n\n");
+                        Sleep(1000);
                         main_panel();
                     }
                     else
                     {
                         system("cls");
-                        printf("\n\n\t\t\t You have not voted.You can now view candidate list.\n\n\n\n\n\n");
-                        printf("\n\n              Below is the list of all candidates: \n\n\n\n");
+                        printf("\n\n\t\t\t You have not voted.You can now view candidate list.\n\n");
+                        printf("\n\n              Below is the list of all candidates: \n\n");
                         candidate *listCandidate = rootC;
                         list_all_candidates(listCandidate);
                         printf("\n\n          Enter which candidate you want to vote for by entering his ID:\n");
