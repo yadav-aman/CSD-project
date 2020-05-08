@@ -47,7 +47,7 @@ void ex() //completed
     {
         printf("\t\t\t\t\t\t\t%d seconds", i);
         printf("\t\t\t\t\t\t\t\r");
-        Sleep(1000);
+        Sleep(500);
     }
     Sleep(500);
     main_panel();
@@ -72,11 +72,11 @@ void main_panel() //completed
         printf("                                  ECI presenting the first online voting system of India.                        \n");
         printf("\n                                             Vote count %d / %d\n\n\n\n",numOfVotesCasted,TotalVoters);
         Sleep(200);
-        printf("                                          Press any key to continue !!!                                \n\n\n");
+        printf("                                       � Copyright Election Commission of India                                    \n\n");
         Sleep(200);
         printf("________________________________________________________________________________________________________________________\n\n\n");
         Sleep(200);
-        printf("                                       � Copyright Election Commission of India                                    \n\n");
+        printf("                                          Press any key to continue !!!                                \n\n\n");
         printf("\n\n                                                      ");
         Sleep(1000);
 
@@ -84,10 +84,10 @@ void main_panel() //completed
 
         Sleep(200);
         int i;
-        for (i = 0; i <= 100; i++)
+        for (i = 0; i <= 100; i+=5)
         {
             printf("\r");
-            printf("\t\t\t\t\t\t\tLoading : %d %%", i);
+            printf("\t\t\t\t\t\tLoading : %d %%", i);
             Sleep(1);
         }
         Sleep(1000); //Delay of 1 sec= Sleep(1000).
@@ -172,27 +172,27 @@ void adminPanel() //completed
         scanf("%d", &id);
         if (id == ADMINID)
         {
-            printf("\nID Matched\nYou have entered the Admin Panel\n");
+            printf("\n\t\t\t\t\tID Matched\n\t\t\t\t\tYou have entered the Admin Panel\n");
             while (1)
             {
-                printf("\n\nEnter: \n1.To close voting\n2.To view Results\n3.Go back to the main panel\n");
+                printf("\n\n\t\t\t\t\tEnter: \n\t\t\t\t\t1.To close voting\n\t\t\t\t\t2.To view Results\n\t\t\t\t\t3.Go back to the main panel\n");
                 scanf("%d", &ch);
                 switch (ch)
                 {
                 case 1:
                     if (isVotingOpen)
                     {
-                        printf("\nVoting is now closed\n");
+                        printf("\n\t\t\t\t\tVoting is now closed\n");
                         isVotingOpen = false;
                     }
                     else
-                        printf("Voting has already been closed\n");
+                        printf("\n\t\t\t\t\tVoting has already been closed\n");
                     break;
 
                 case 2:
                     if (isVotingOpen)
                     {
-                        printf("Voting is still open\nClose Voting to watch the Results\n");
+                        printf("\n\t\t\t\t\tVoting is still open\n\t\t\t\t\tClose Voting to watch the Results\n");
                         break;
                     }
                     else
@@ -204,7 +204,7 @@ void adminPanel() //completed
                     break;
 
                 default:
-                    printf("Invalid Choice\nTry Again");
+                    printf("\n\t\t\t\t\tInvalid Choice\n\t\t\t\t\tTry Again");
                     break;
                 }
             }
@@ -239,7 +239,7 @@ void voting_screen() //completed
     printf("               The first instance of booth capturing in India was recorded in 1957 in the General Elections of that\n");
     printf("                                 year in Rachiyahi of Begusarai constituency.\n");
     Sleep(500);
-    printf("                                             . ");
+    printf("                                              . ");
     Sleep(200);
     printf(" . ");
     Sleep(200);
@@ -306,7 +306,7 @@ void voting_screen() //completed
                         list_all_candidates(listCandidate);
                         while (1)
                         {
-                            printf("\n\n          Enter which candidate you want to vote for by entering his ID:");
+                            printf("\n\n          Enter which candidate you want to vote for by entering his ID:  ");
                             scanf("%d", &candIdSelected);
                             if (candIdSelected > 0 && candIdSelected <= candidateCounter)
                             {
@@ -314,12 +314,13 @@ void voting_screen() //completed
                                 numOfVotesCasted++;
                                 tempVoter->voted++;
                                 Sleep(1000);
-                                printf("\n\nYour Vote had been casted\nThank You for Voting\nExiting to Home Screen");
+                                system("cls");
+                                printf("\n\n\t\t\t\t\tYour Vote had been casted\n\t\t\t\t\tThank You for Voting\n\n\n\t\t\t\t\tExiting to Home Screen");
                                 Sleep(2000);
                                 ex();
                             }
                             else
-                                printf("\n\nInvalid Choice\nEnter Again\n");
+                                printf("\n\n\t\t\t\t\tInvalid Choice\n\t\t\t\t\tEnter Again\n");
                         }
                     }
                 }

@@ -23,6 +23,7 @@ Steps Required for successful execution -
 3. To Run code open main.c in code blocks and click on build and run.
 4. Follow on screen procedures given in the program.
 5. After the Elections one more file named "Results.txt" will be created in which the results of the election will be saved.
+Note - admin password is 123456
 
 Contributions -
 Prashant - Interface and linked list
