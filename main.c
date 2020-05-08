@@ -31,7 +31,6 @@ int main() //completed
     printf("\t\t\t\t\tPress any key to continue: ");
     getch();
     system("cls");
-<<<<<<< HEAD
 
     printf("\n\n");
     printf("                                       Satyamev Jayate- Bharat Nirvachan Aayog\n\n");
@@ -67,8 +66,6 @@ int main() //completed
     }
     Sleep(1000); //Delay of 1 sec= Sleep(1000).
 
-=======
->>>>>>> b19ff62d21d59e3ee3ebceaf2cddedaf69f4d668
     main_panel();
 
     return 0;
@@ -332,26 +329,20 @@ void voting_screen() //completed
                     int toCheckIfVoted = tempVoter->voted;
                     if (toCheckIfVoted)
                     {
-<<<<<<< HEAD
                         printf("\n\n\n\n\n You have already voted. Exiting to main panel.\n\n\n\n\n\n");
                         Sleep(1000);
                         main_panel();
-=======
                         printf("\n\n       You have already voted. Exiting to main panel.");
                         Sleep(2000);
                         ex();
->>>>>>> b19ff62d21d59e3ee3ebceaf2cddedaf69f4d668
                     }
                     else
                     {
                         system("cls");
-<<<<<<< HEAD
                         printf("\n\n\t\t\t You have not voted.You can now view candidate list.\n\n");
                         printf("\n\n              Below is the list of all candidates: \n\n");
-=======
                         printf("\n\n\t\t\t You have not voted.You can now view candidate list.\n");
                         printf("\n               Below is the list of all candidates: \n\n");
->>>>>>> b19ff62d21d59e3ee3ebceaf2cddedaf69f4d668
                         candidate *listCandidate = rootC;
                         list_all_candidates(listCandidate);
                         while (1)
