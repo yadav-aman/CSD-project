@@ -196,7 +196,6 @@ void adminPanel() //completed
                         break;
                     }
                     else
-                        system("cls");
                         electionStatistics(&rootC, numOfVotesCasted);
                     break;
 
