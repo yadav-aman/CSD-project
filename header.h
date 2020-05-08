@@ -17,10 +17,11 @@ typedef struct voter //structure for storing the details of the voter
 	struct voter *left;
 	struct voter *right;
 	int height;
+
 } voter;
 voter *root;
 long int TotalVoters = 0;
-
+int candidateCounter = 0;
 //-------------------------------- CANDIDATE STRUCTURE -------------------------------------------------------
 typedef struct candidate // structure to store the list of candidates
 {
@@ -46,6 +47,7 @@ void insertCandidate(candidate **h, int candidID, char name[30], char partyName[
 	newC->numOfVotes = numOfVotes;
 	newC->next = *h;
 	*h = newC;
+	candidateCounter++;
 }
 
 //--------------------------------FUNCTION FOR PRINTING CANDIDATES------------------------------------------------------------------
@@ -61,6 +63,27 @@ void list_all_candidates(candidate *cand)
 		{
 			printf("\n\nCandidateID: %d || Name: %s || Party Name: %s || Party Symbol: %s || Gender: %s\n", cand->candID, cand->name, cand->partyName, cand->partySymbol, cand->sex);
 			cand = cand->next;
+		}
+
+		printf("\n\n");
+	}
+}
+
+//---------------------------------FUNCTION FOR UPDATING CANDIDATE VOTES-------------------------------------------------------
+void candidateVoteUpdate(candidate **c, int id)
+{
+	candidate *temp = *c;
+	if (temp == NULL)
+	{
+		printf("\n\nERROR\n\nNo candidates.\n\n\n\n\n");
+	}
+	else
+	{
+		while (temp != NULL)
+		{
+			if (temp->candID == id)
+				temp->numOfVotes++;
+			temp = temp->next;
 		}
 
 		printf("\n\n");
@@ -276,7 +299,7 @@ void importCandidates()
 			char *data = strtok(line, ",");
 			int candid = atoi(data);
 
-			data = strtok(NULL,",");
+			data = strtok(NULL, ",");
 			char *name = data;
 
 			data = strtok(NULL, ",");
