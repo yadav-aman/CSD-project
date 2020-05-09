@@ -286,7 +286,7 @@ void voting_screen() //completed
                         printf("\n\n         Voter ID exists. Please enter correct name for further verification.\n\n\n");
                         printf("\n\n");
                         printf("                        You have %d tries left.", tempVoter->NoOfAttempt);
-                        printf("\n\n                       Enter your name as per VOTER ID:   ");
+                        printf("\n\n                       Enter your full name as per VOTER ID:   ");
                         fflush(stdin);
                         gets(inputtedName);
                         printf("\n\n\n");
