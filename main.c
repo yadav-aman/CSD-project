@@ -14,11 +14,10 @@ long int numOfVotesCasted = 0;
 char inputtedName[30];
 void main_panel();
 void ex();
-void admin();
 void voting_screen();
 void adminPanel();
 
-int main() //completed
+int main() //program execution starts from here
 {
     system("cls");
     printf("\n\n\n\n\n\t\t\t\t\t\tFOR BETTER EXPERIENCE PLEASE OPEN TERMINAL IN FULL SCREEN MODE\n\n\t\t\t\t\t\tPRESS ANY KEY TO CONTINUE\n\t\t\t\t\t\t");
@@ -28,8 +27,11 @@ int main() //completed
     Sleep(1000);
     system("cls");
     printf("\n\n\n\n\n\n\n\n");
+   
+    //importing data from the main database (.csv files)
     importVoters();
     importCandidates();
+   
     printf("\t\t\t\t\tPress any key to continue: ");
     getch();
     system("cls");
@@ -40,7 +42,7 @@ int main() //completed
     return 0;
 }
 
-void ex() //completed
+void ex() //to exit back to the home screen
 {
     system("cls");
 
@@ -57,7 +59,7 @@ void ex() //completed
     main_panel();
 }
 
-void main_panel() //completed
+void main_panel() //to display the main screen 
 {
     if (isVotingOpen)
     {
@@ -126,7 +128,7 @@ void main_panel() //completed
             }
         }
     }
-    else // finally exiting the system after the voting is complete
+    else // finally exiting the system after the voting is closed
     {
         system("cls");
         printf("Voting has been closed\nEnter Admin id to close the system\n");
@@ -159,7 +161,7 @@ void main_panel() //completed
     }
 }
 
-void adminPanel() //completed
+void adminPanel() //admin control panel for closing the OVS and seeing the results
 {
     int id, ch;
     while (1)
@@ -213,7 +215,7 @@ void adminPanel() //completed
     }
 }
 
-void voting_screen() //completed
+void voting_screen() //to verify if a voter is valid and record his/her vote 
 {
     system("cls");
     printf("\n\n");
@@ -270,7 +272,7 @@ void voting_screen() //completed
             {
                 while(1)
                 {
-                    if (tempVoter->NoOfAttempt == 0)
+                    if (tempVoter->NoOfAttempt == 0) //if the voter exceeds the number of unsuccessful attepmts
                     {
                         printf("\n\n\n\n\t\t\t\tYou ran out of attempts.\n\t\t\t\tYour ID has been blocked\n\t\t\t\tSwitching to main panel.\n\n\n");
                         Sleep(3000);
