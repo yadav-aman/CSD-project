@@ -10,6 +10,7 @@ Features and Functions of the project-
 1. Our program can read data from CSV file and can create the required data structure in the computer’s memory.
 2. Our program makes sure that no one can vote twice.
 3. Searching of user’s data can be done in O(log N) time.
+4. At no point during the execution of the program, do we keep record of who voted for whom to maintain voter anonymity.
 
 Data structures used -
 We have used the linked list data structure to store the data of political parties, and as we know that the numbers 
@@ -22,12 +23,14 @@ Steps Required for successful execution -
 "ReadMe.txt", "CandidateList.csv", "VoterList.csv".
 3. To Run code open main.c in code blocks and click on build and run.
 4. Follow on screen procedures given in the program.
-5. After the Elections one more file named "Results.txt" will be created in which the results of the election will be saved.
-Note - admin password is 123456
+5. To see the results of the election, voting would have to be closed. For this, go to the admin panel. 
+   Note - admin password is 123456
+6. The results are also saved in a "Results.txt" file and can be seen even after exiting the program. 
+7. After seeing the results, head to the main menu to exit the program.  
 
 Contributions -
 Prashant - Interface and linked list
 Aman Yadav - File Handling(all input and output), Debugging and Database search
 Aniket Gupta - AVL tree
 Shagun - Worked with Candidates, Voting and General Program Logic
-Naman - Candidate linked list, Voting Statistics Function, Debugging and general compilaton of the program 
+Naman - Candidate data structure, Voting Statistics, Debugging and general compilaton of the program 
