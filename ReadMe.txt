@@ -29,5 +29,5 @@ Contributions -
 Prashant - Interface and linked list
 Aman Yadav - File Handling(all input and output), Debugging and Database search
 Aniket Gupta - AVL tree
-Shagun - Worked with Candidates and Voting Logic
+Shagun - Worked with Candidates, Voting and General Program Logic
 Naman - 
