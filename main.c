@@ -4,7 +4,7 @@
 #include <windows.h>
 #include <stdbool.h>
 #include "header.h"
-
+// test pull
 #define ADMINID 123456
 
 bool isVotingOpen = true;
