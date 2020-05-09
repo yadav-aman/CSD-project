@@ -383,8 +383,8 @@ void electionStatistics(candidate **list, long int totalVotesCasted)
 		if (maxCounter == 1) // if there is only one winner
 		{
 			float votePer = (float)((winner->numOfVotes * 100 / totalVotesCasted));
-			printf("\nWinner of the Electons is: \n\nName: %s\nParty: %s\nLogo: %s\nVotes: %ld\nVote Percentage: %.2f%%\n", winner->name, winner->partyName, winner->partySymbol, winner->numOfVotes, votePer);
-			fprintf(FilePointer, "\nWinner of the Electons is: \n\nName: %s\nParty: %s\nLogo: %s\nVotes: %ld\nVote Percentage: %.2f%%\n", winner->name, winner->partyName, winner->partySymbol, winner->numOfVotes, votePer);
+			printf("\nWinner of the Elections is: \n\nName: %s\nParty: %s\nLogo: %s\nVotes: %ld\nVote Percentage: %.2f%%\n", winner->name, winner->partyName, winner->partySymbol, winner->numOfVotes, votePer);
+			fprintf(FilePointer, "\nWinner of the Elections is: \n\nName: %s\nParty: %s\nLogo: %s\nVotes: %ld\nVote Percentage: %.2f%%\n", winner->name, winner->partyName, winner->partySymbol, winner->numOfVotes, votePer);
 		}
 		else //in case there is a tie
 		{
