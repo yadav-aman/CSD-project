@@ -446,4 +446,12 @@ void logo()
 	printf("	                              `oNy-                              \n");
 	printf("\n\n           	  ELECTION COMMISSION OF INDIA\n");
 	printf("	   	   MERA VOTE MERA ADHIKAAR\n");
+	
+	int i;
+    for (i = 0; i <= 100; i ++)
+    {
+        printf("\r");
+        printf("\t\t\t\t\t\tLoading : %d %%", i);
+        Sleep(10);
+    }
 }
