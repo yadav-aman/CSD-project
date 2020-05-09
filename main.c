@@ -16,10 +16,6 @@ void main_panel();
 void ex();
 void admin();
 void voting_screen();
-void wrong_data();
-void duplicate();
-void lead();
-void vote_bank();
 void adminPanel();
 
 int main() //completed
