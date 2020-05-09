@@ -342,6 +342,7 @@ void voting_screen() //completed
                                     break;
                                 default :
                                     printf("Enter a valid choice: ");
+                                    Sleep(1000);
                             }   
                         }
                     }
