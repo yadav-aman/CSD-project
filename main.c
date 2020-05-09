@@ -257,7 +257,7 @@ void voting_screen() //completed
     printf(" . \n");
     printf("                                            Thanks for your patience.\n\n\n\n\n");
     Sleep(500);
-    
+
     while (1)
     {
         system("cls");
@@ -303,8 +303,6 @@ void voting_screen() //completed
                             printf("\n\n\t\t\t Press any key to continue!!\n\t\t\t");
                             getch();
                             system("cls");
-                            printf("\n\n\t\t\t You have not voted.You can now view candidate list.\n\n");
-                            printf("\n\n              Below is the list of all candidates: \n\n");
                             printf("\n\n\t\t\t You have not voted.You can now view candidate list.\n");
                             printf("\n               Below is the list of all candidates: \n\n");
                             candidate *listCandidate = rootC;
