@@ -22,13 +22,13 @@
 8. The results are also saved in a "Results.txt" file and can be seen even after exiting the program.
 
 9. For any other queries, contact any of the group members:
-<li>
-   1.Aman Yadav: ay133
-   2.Aniket Gupta: ag304
-   3.Naman Rastogi: nr907
-   4.Prashant: pr350
-   5.Shagun Agarwal: sa831
- </li>  
- THANK YOU!
+
+   1.Aman Yadav: ay133 <br>
+   2.Aniket Gupta: ag304 <br>
+   3.Naman Rastogi: nr907 <br>
+   4.Prashant: pr350 <br>
+   5.Shagun Agarwal: sa831 <br>
+
+ ## THANK YOU!
    
 
