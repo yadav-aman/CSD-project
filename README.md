@@ -1,3 +1,9 @@
+# About project
+
+So this is a simple C project that me and my team made for our end term CSD-201 submission.
+In this project we have implemented **String processing, File Handling, AVL trees and Linked List**, for more information you can refer to this <a href="https://github.com/yadav-aman/CSD-project/blob/master/Pamphlet%20(except%20steps%20for%20execution).pdf">pdf</a>.
+
+---
 ### Steps Required for successful execution -
 
 1. Make sure that the code is compiled and executed in windows environment.
