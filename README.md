@@ -29,11 +29,11 @@ In this project we have implemented **String processing, File Handling, AVL tree
 
 9. For any other queries, contact any of the group members:
 
-   1.Aman Yadav: ay133 <br>
-   2.Aniket Gupta: ag304 <br>
-   3.Naman Rastogi: nr907 <br>
-   4.Prashant: pr350 <br>
-   5.Shagun Agarwal: sa831 <br>
+   1.Aman Yadav: ay133@snu.edu.in <br>
+   2.Aniket Gupta: ag304@snu.edu.in <br>
+   3.Naman Rastogi: nr907@snu.edu.in <br>
+   4.Prashant: pr350@snu.edu.in <br>
+   5.Shagun Agarwal: sa831@snu.edu.in <br>
 
  ## THANK YOU!
    
